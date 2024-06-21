@@ -1,0 +1,56 @@
+@startuml
+
+interface ICalculable {
+    + int calculateCalories()
+}
+
+abstract class BaseRecipe implements ICalculable {
+    - string name
+    - string category
+    - List<BaseIngredient> ingredients
+    - string instructions
+    - int totalCalories
+    + addIngredient(BaseIngredient ingredient)
+    + int calculateCalories()
+}
+
+class Recipe extends BaseRecipe {
+}
+
+abstract class BaseIngredient implements ICalculable {
+    - string name
+    - int quantity
+    - string unit
+    - int caloriesPerUnit
+    + int calculateCalories()
+}
+
+class Ingredient extends BaseIngredient {
+}
+
+class RecipeManager {
+    - List<BaseRecipe> recipes
+    + static RecipeManager getInstance()
+    + void addRecipe(BaseRecipe recipe)
+    + void removeRecipe(BaseRecipe recipe)
+    + List<BaseRecipe> searchRecipes(string query)
+    + List<BaseRecipe> getRecipesByCategory(string category)
+    + void notifyChange()
+}
+
+class ShoppingList {
+    - List<BaseIngredient> ingredients
+    + void addIngredient(BaseIngredient ingredient)
+    + void removeIngredient(BaseIngredient ingredient)
+    + void generateShoppingList(List<BaseRecipe> recipes)
+}
+
+
+
+RecipeManager "1" -- "*" BaseRecipe : manages >
+BaseRecipe "1" -- "*" BaseIngredient : contains >
+RecipeManager "1" -- "*" ShoppingList : generates >
+RecipeManager "1" -- "1" RecipeManager : singleton >
+RecipeManager "1" ..> RecipeObserver : notifies >
+
+@enduml
