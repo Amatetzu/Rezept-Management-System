@@ -11,7 +11,7 @@ RZM ist ein kleines Softwareprojekt, welches im Zweitsemester-Modul "Softwareent
 ## Wahrscheinliche Features (wenn wir es schaffen):
 
 - Rezepte einscannen (Bilderkennung)
-- Zutaten einscannen (QR-Code an Verpackung)
+- Zutaten einscannen (Barcode an Verpackung)
 - Rezepte und Einkaufslisten teilen (z.B. über WhatsApp)
 - Wochenessensplaner
 - Online nach Rezepten suchen (über APIs)
