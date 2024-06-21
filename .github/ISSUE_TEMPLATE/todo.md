@@ -1,10 +1,10 @@
-
----
-name: TODOs for the team <br>
-about: A list of tasks that need to be completed <br>
-title: '' <br>
-labels: enhancement <br>
-assignees: ''
+|                |                            |
+|----------------|----------------------------|
+| **Name:**      | TODOs for the team         |
+| **About:**     | A list of tasks to be completed |
+| **Title:**     |                            |
+| **Labels:**    | enhancement                |
+| **Assignees:** |                            |
 
 ---
 
@@ -15,6 +15,5 @@ assignees: ''
 **Deadline:**
 
 ---
+
 *Please use this template only for specific tasks assigned by the project manager.*
-
-
