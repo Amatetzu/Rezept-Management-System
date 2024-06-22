@@ -1,0 +1,26 @@
+ {
+    "Name": "Butter",
+    "Einheit": "g",
+    "Menge": 500.0,
+    "Allergene": [
+      "lactose"
+    ],
+    "EnergieKcal": 717.0,
+    "Kategorie": [
+      "Tierisches Produkt",
+      "Vegetarisch"
+    ]
+  },
+  {
+    "Name": "Eier",
+    "Einheit": "Stück",
+    "Menge": 10.0,
+    "Allergene": [
+      "Ei"
+    ],
+    "EnergieKcal": 155.0,
+    "Kategorie": [
+      "Tierisches Produkt",
+      "Vegetarisch"
+    ]
+  }
