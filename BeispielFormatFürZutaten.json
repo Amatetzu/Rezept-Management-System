@@ -1,4 +1,4 @@
- {
+{ [ {
     "Name": "Butter",
     "Einheit": "g",
     "Menge": 500.0,
@@ -24,3 +24,222 @@
       "Vegetarisch"
     ]
   }
+
+   {
+    "Name": "Mehl",
+    "Einheit": "g",
+    "Menge": 500.0,
+    "Allergene": [
+      "Gluten"
+    ],
+    "EnergieKcal": 364.0,
+    "Kategorie": [
+      
+      "Vegetarisch", "Vegan"
+    ]
+  }
+[
+  {
+    "Name": "Zucker",
+    "Einheit": "g",
+    "Menge": 500.0,
+    "Allergene": [],
+    "EnergieKcal": 387.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Milch",
+    "Einheit": "ml",
+    "Menge": 1000.0,
+    "Allergene": [
+      "Lactose"
+    ],
+    "EnergieKcal": 42.0,
+    "Kategorie": [
+      "Tierisches Produkt",
+      "Vegetarisch"
+    ]
+  },
+  {
+    "Name": "Backpulver",
+    "Einheit": "g",
+    "Menge": 16.0,
+    "Allergene": [],
+    "EnergieKcal": 53.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Vanillezucker",
+    "Einheit": "g",
+    "Menge": 8.0,
+    "Allergene": [],
+    "EnergieKcal": 32.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Salz",
+    "Einheit": "g",
+    "Menge": 10.0,
+    "Allergene": [],
+    "EnergieKcal": 0.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Schokolade",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [
+      "Milch",
+      "Soja"
+    ],
+    "EnergieKcal": 546.0,
+    "Kategorie": [
+      "Vegetarisch"
+    ]
+  },
+  {
+    "Name": "Sauerrahm",
+    "Einheit": "g",
+    "Menge": 200.0,
+    "Allergene": [
+      "Lactose"
+    ],
+    "EnergieKcal": 193.0,
+    "Kategorie": [
+      "Tierisches Produkt",
+      "Vegetarisch"
+    ]
+  }
+[
+  {
+    "Name": "Hefe",
+    "Einheit": "g",
+    "Menge": 42.0,
+    "Allergene": [],
+    "EnergieKcal": 105.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Mandelmehl",
+    "Einheit": "g",
+    "Menge": 500.0,
+    "Allergene": [
+      "Schalenfrüchte"
+    ],
+    "EnergieKcal": 575.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Maisstärke",
+    "Einheit": "g",
+    "Menge": 500.0,
+    "Allergene": [],
+    "EnergieKcal": 381.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Kakao",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [],
+    "EnergieKcal": 228.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Honig",
+    "Einheit": "g",
+    "Menge": 250.0,
+    "Allergene": [],
+    "EnergieKcal": 304.0,
+    "Kategorie": [
+      "Tierisches Produkt",
+      "Vegetarisch"
+    ]
+  },
+  {
+    "Name": "Haferflocken",
+    "Einheit": "g",
+    "Menge": 500.0,
+    "Allergene": [
+      "Gluten"
+    ],
+    "EnergieKcal": 389.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Sahne",
+    "Einheit": "ml",
+    "Menge": 200.0,
+    "Allergene": [
+      "Lactose"
+    ],
+    "EnergieKcal": 202.0,
+    "Kategorie": [
+      "Tierisches Produkt",
+      "Vegetarisch"
+    ]
+  },
+  {
+    "Name": "Ahornsirup",
+    "Einheit": "ml",
+    "Menge": 250.0,
+    "Allergene": [],
+    "EnergieKcal": 260.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Trockenfrüchte",
+    "Einheit": "g",
+    "Menge": 200.0,
+    "Allergene": [],
+    "EnergieKcal": 282.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  },
+  {
+    "Name": "Margarine",
+    "Einheit": "g",
+    "Menge": 250.0,
+    "Allergene": [
+      "Soja"
+    ],
+    "EnergieKcal": 717.0,
+    "Kategorie": [
+      "Vegetarisch",
+      "Vegan"
+    ]
+  }
+]
+
