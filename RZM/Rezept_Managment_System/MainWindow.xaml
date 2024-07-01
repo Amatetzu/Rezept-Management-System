@@ -1,0 +1,87 @@
+﻿<Window x:Class="Rezept_Managment_System.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rezept_Managment_System"
+        xmlns:userControlls="clr-namespace:Rezept_Managment_System.userControlls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"><!-- header, searchbar-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <userControlls:SearchBar x:Name="searchBar" Grid.Column="1"
+                         SearchButtonClicked="searchBar_SearchButtonClicked"/>
+        </Grid>
+
+        <Grid Grid.Row="1"> <!-- main content-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <ListView x:Name="kategorilist" 
+                      Grid.Column="0"/>
+            <StackPanel Grid.Column="1">
+                <Button x:Name="addRezept" 
+                         Click="addRezept_Click" 
+                         Grid.Column="1" 
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center"
+                         Margin="10"
+                         Content="Add Rezept"
+                         FontSize="20"/>
+
+                <Button x:Name="addZutat" 
+                         Click="addZutat_Click" 
+                         Grid.Column="1" 
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center"
+                         Margin="10"
+                         Content="Add Zutat"
+                         FontSize="20"/>
+
+                <Button x:Name="addCategory" 
+                         Click="addCategory_Click" 
+                         Grid.Column="1" 
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center"
+                         Margin="10"
+                         Content="Add Kategorie"
+                         FontSize="20"/>
+                
+                <Button x:Name="einkausliste" 
+                         Click="einkausliste_Click"
+                         Grid.Column="1" 
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center"
+                         Margin="10"
+                         Content="Einkaufsliste"
+                         FontSize="20"/>
+            </StackPanel>
+           
+
+        </Grid>
+
+
+    </Grid>
+</Window>

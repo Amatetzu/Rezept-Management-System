@@ -1,0 +1,51 @@
+﻿<Window x:Class="Rezept_Managment_System.View.AddIngredientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rezept_Managment_System.View"
+        xmlns:userControlls="clr-namespace:Rezept_Managment_System.userControlls"
+        mc:Ignorable="d"
+        Title="AddIngredientWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" 
+                   Content="Zutat:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   FontSize="20"/>
+
+            <Button x:Name="storage"
+                    Grid.Column="1" 
+                    Content="Add Zutat" 
+                    Click="storage_Click"
+                    Width="200" 
+                    Height="40" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Center" 
+                    Margin="10" 
+                    FontSize="20"/>
+
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="0,0,0,-110">
+            <userControlls:UserInputLable x:Name="name" InputName="Name:"/>
+            <userControlls:UserInputLable x:Name="einheit" InputName="Einheit:"/>
+            <userControlls:UserInputLable x:Name="menge" InputName="Menge:"/>
+            <userControlls:UserInputLable x:Name="allergene" InputName="Allergene:"/>
+            <userControlls:UserInputLable x:Name="energieKcal" InputName="Energie:"/>
+            <userControlls:UserInputLable x:Name="kategorie" InputName="Kategorie:"/>
+
+
+
+        </StackPanel>
+    </Grid>
+</Window>
