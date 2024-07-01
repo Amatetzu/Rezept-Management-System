@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Rezept_Managment_System.utilities;
+using Rezept_Managment_System.userControlls;
 
 namespace Rezept_Managment_System.View
 {
@@ -25,9 +26,25 @@ namespace Rezept_Managment_System.View
 
     public partial class AddIngredientWindow : Window
     {
-        private List<Zutat> zutatenListe = new List<Zutat>();
         
         
+        public void SaveIngredient()
+        {
+            var zutat = new Zutat()
+            {
+                Name = name.UserInput,
+                Einheit = einheit.UserInput,
+                Menge = double.Parse(menge.UserInput),
+                Allergene = ManageJson.SplitString(allergene.UserInput),
+                EnergieKcal = double.Parse(energieKcal.UserInput),
+                Kategorie = ManageJson.SplitString(kategorie.UserInput)
+            };
+
+            string fullPath = ManageJson.GetfullPath("data/Zutaten.json");
+            List<Zutat> zutaten = ManageJson.ReadJsonFile<List<Zutat>>(fullPath);
+            zutaten.Add(zutat);
+            ManageJson.WriteJsonFile(fullPath, zutat);
+        }
 
         public AddIngredientWindow()
         {
@@ -37,6 +54,16 @@ namespace Rezept_Managment_System.View
 
         private void storage_Click(object sender, RoutedEventArgs e)
         {
+            try {
+                SaveIngredient();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Speichern der Zutat: {ex.Message}");
+            }
+            
+
+            
             
         }
     }

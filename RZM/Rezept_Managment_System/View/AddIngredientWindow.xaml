@@ -41,7 +41,7 @@
             <userControlls:UserInputLable x:Name="einheit" InputName="Einheit:"/>
             <userControlls:UserInputLable x:Name="menge" InputName="Menge:"/>
             <userControlls:UserInputLable x:Name="allergene" InputName="Allergene:"/>
-            <userControlls:UserInputLable x:Name="energie" InputName="Energie:"/>
+            <userControlls:UserInputLable x:Name="energieKcal" InputName="Energie:"/>
             <userControlls:UserInputLable x:Name="kategorie" InputName="Kategorie:"/>
 
 

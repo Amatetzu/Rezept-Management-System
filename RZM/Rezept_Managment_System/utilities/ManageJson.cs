@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Rezept_Managment_System.utilities
 {
@@ -39,6 +40,27 @@ namespace Rezept_Managment_System.utilities
                 System.Windows.MessageBox.Show($"Fehler beim Lesen der Datei: {ex.Message}");
                 return default(T);
             }
+        }
+        
+        public static void WriteJsonFile<T>(string fullPath, T objectToWrite)
+        {
+            try
+            {
+                string jsonContent = Newtonsoft.Json.JsonConvert.SerializeObject(objectToWrite, Newtonsoft.Json.Formatting.Indented);
+                System.IO.File.WriteAllText(fullPath, jsonContent);
+                MessageBox.Show("Zutat wurde gespeichert");
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Fehler beim Schreiben der Datei: {ex.Message}");
+            }
+        }
+
+        public static string GetfullPath(string relativPath)
+        {
+            string fullPath = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, relativPath);
+            return fullPath;
+
         }
     }
 }
