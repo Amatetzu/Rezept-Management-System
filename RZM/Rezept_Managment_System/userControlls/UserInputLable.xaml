@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Rezept_Managment_System.userControlls.UserInputLable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Rezept_Managment_System.userControlls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="inputLable" 
+               Grid.Column="0" 
+               Text="{Binding InputName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" 
+               VerticalAlignment="Center"
+               FontSize="20"
+               Panel.ZIndex="1"
+               Margin="10"
+               Padding="5"/>
+        <TextBox Grid.Column="1" 
+                 Name="input" 
+                 VerticalAlignment="Center" 
+                 Margin="10" 
+                 FontSize="20"
+                 Padding="5"
+                 Text="{Binding UserInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Background="Transparent"
+                 TextChanged="input_TextChanged"/>
+        <TextBlock Grid.Column="1"
+                   x:Name="placeholder"
+                   Text="User Input"
+                   FontSize="20"
+                   VerticalAlignment="Center"
+                   Margin="15"
+                   Foreground="LightGray"
+                   Visibility="Visible"
+                   Panel.ZIndex="-1"/>
+        <Button x:Name="clearButton"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                BorderThickness="0"
+                Margin="15"
+                Content="X"
+                Foreground="LightGray"
+                FontSize="20"
+                Click="clearButton_Click"   />
+
+    </Grid>
+</UserControl>

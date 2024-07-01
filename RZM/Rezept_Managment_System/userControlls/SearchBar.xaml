@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Rezept_Managment_System.userControlls.SearchBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- TextBox für die Eingabe -->
+        <TextBox x:Name="searchfield"
+                 Grid.Column="0"
+                 Margin="5"
+                 FontSize="16"
+                 VerticalContentAlignment="Center"
+                 Padding="5,0"
+                 Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 TextChanged="searchfield_TextChanged"
+                 Background="Transparent"/>
+
+        <!-- Placeholder TextBlock -->
+        <TextBlock Text="search"
+                   x:Name="placeholder"
+                   Foreground="LightGray"
+                   Margin="10,0"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   IsHitTestVisible="False"
+                   Padding="5,0"
+                   Visibility="Visible"
+                   Panel.ZIndex="-1"
+                   Background="White"/>
+        <!-- Button zum löschen der suche -->
+        <Button x:Name="clearButton"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                BorderThickness="0"
+                Margin="10"
+                Content="X"
+                Foreground="LightGray"
+                FontSize="20"
+                Click="clearButton_Click" />
+        <!-- Button mit FontAwesome Icon für die Suche -->
+        <Button x:Name="searchButton"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Grid.Column="1"
+                Background="Transparent"
+                BorderThickness="0"
+                Margin="5"
+                Click="SearchButton_Click">
+            <fa:ImageAwesome Icon="Search" Width="20" Height="20" Foreground="Gray"/>
+        </Button>
+    </Grid>
+</UserControl>
