@@ -9,40 +9,23 @@
         Title="Ingredients" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="70" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <Button x:Name="storage"
-            Grid.Column="1" 
-            Content="Hinzufügen"
-            Click="storage_Click"
-            Width="150" 
-            Height="30" 
-            Margin="10" 
-            FontSize="20"/>
+            <userControlls:GenericButton Content="Bearbeiten"
+                                         x:Name="edit"
+                                         GenericButtonClicked="edit_GenericButtonClicked"/>
+            <userControlls:GenericButton Content="Löschen"
+                                         x:Name="delete"
+                                         GenericButtonClicked="delete_GenericButtonClicked"/>
+            <userControlls:GenericButton Content="Hinzufügen"
+                                         x:Name="add"
+                                         GenericButtonClicked="add_GenericButtonClicked"/>
+            <userControlls:SearchBar Width="250" Margin="10"/>
 
-            <Button x:Name="delete"
-            Grid.Column="1" 
-            Content="Löschen"
-            Click="delete_Click"
-            Width="150" 
-            Height="30" 
-            Margin="10" 
-            FontSize="20"/>
 
-            <Button x:Name="change"
-            Grid.Column="1" 
-            Content="Bearbeiten"
-            Click="change_Click"
-            Width="150" 
-            Height="30" 
-            Margin="10" 
-            FontSize="20"/>
-
-           
-                
 
         </StackPanel>
 

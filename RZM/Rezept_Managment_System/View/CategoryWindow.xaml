@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Rezept_Managment_System.View"
         xmlns:userControlls="clr-namespace:Rezept_Managment_System.userControlls"
         mc:Ignorable="d"
-        Title="CategoryWindow" Height="450" Width="850">
+        Title="CategoryWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -24,7 +24,7 @@
                                             Content="Hinzufügen"
                                             GenericButtonClicked="add_GenericButtonClicked"/>
 
-            <userControlls:SearchBar Width="300" Margin="10"/>
+            <userControlls:SearchBar Width="250" Margin="10"/>
 
         </StackPanel>
 

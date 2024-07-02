@@ -24,20 +24,23 @@ namespace Rezept_Managment_System.View
             InitializeComponent();
         }
 
-        private void storage_Click(object sender, RoutedEventArgs e)
+       
+       
+
+        private void edit_GenericButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_GenericButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void add_GenericButtonClicked(object sender, EventArgs e)
         {
             AddIngredientWindow addIngredientWindow = new AddIngredientWindow();
             addIngredientWindow.ShowDialog();
-        }
-
-        private void change_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void delete_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
