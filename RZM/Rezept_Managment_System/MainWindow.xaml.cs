@@ -31,8 +31,8 @@ namespace Rezept_Managment_System
 
         private void zutat_Click(object sender, RoutedEventArgs e)
         {
-            AddIngredientWindow addIngredientWindow = new AddIngredientWindow();
-            addIngredientWindow.ShowDialog();
+         Ingredients ingredients = new Ingredients();
+            ingredients.ShowDialog();
         }
 
         private void category_Click(object sender, RoutedEventArgs e)
