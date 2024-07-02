@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Rezept_Managment_System.utilities;
 
 namespace Rezept_Managment_System.View
 {
@@ -22,11 +23,21 @@ namespace Rezept_Managment_System.View
         public AddCategoryWindow()
         {
             InitializeComponent();
+            string fullPath = ManageJson.GetfullPath("Data/Kategorien.json");
         }
 
         private void add_GenericButtonClicked(object sender, EventArgs e)
         {
+            var kategorie = new Kategorie()
+            {
+                Name = name.UserInput,
+                Beschreibung = description.UserInput
+            };
+            string fullPath = ManageJson.GetfullPath("Data/Kategorien.json");
 
+            List<Kategorie> kategorien = ManageJson.ReadJsonFile<List<Kategorie>>(fullPath);
+            kategorien.Add(kategorie);
+            ManageJson.WriteJsonFile(fullPath, kategorien);
         }
     }
 }
