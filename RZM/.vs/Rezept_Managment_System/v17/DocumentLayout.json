@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\usercontrolls\\searchbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\usercontrolls\\searchbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\usercontrolls\\searchbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\usercontrolls\\searchbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\usercontrolls\\userinputlable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\usercontrolls\\userinputlable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\view\\addingredientwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\view\\addingredientwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,22 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\usercontrolls\\userinputlable.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\usercontrolls\\userinputlable.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\usercontrolls\\userinputlable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\usercontrolls\\userinputlable.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\usercontrolls\\searchbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\usercontrolls\\searchbar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\usercontrolls\\searchbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\usercontrolls\\searchbar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|c:\\softwareprojekt\\projekt-rezept\\rezept-management-system\\rezept-management-system\\rzm\\rezept_managment_system\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5E6D6C31-C40F-4F04-BFAD-5ABB1B05DB4E}|Rezept_Managment_System\\Rezept_Managment_System.csproj|solutionrelative:rezept_managment_system\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,24 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Classes.cs",
-              "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\utilities\\Classes.cs",
-              "RelativeDocumentMoniker": "Rezept_Managment_System\\utilities\\Classes.cs",
-              "ToolTip": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\utilities\\Classes.cs",
-              "RelativeToolTip": "Rezept_Managment_System\\utilities\\Classes.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T07:09:21.36Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ManageJson.cs",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\utilities\\ManageJson.cs",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\utilities\\ManageJson.cs",
@@ -71,12 +62,11 @@
               "RelativeToolTip": "Rezept_Managment_System\\utilities\\ManageJson.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAA1wDIAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T06:58:56.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-01T06:58:56.061Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AddIngredientWindow.xaml",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\View\\AddIngredientWindow.xaml",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\View\\AddIngredientWindow.xaml",
@@ -88,20 +78,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "AddIngredientWindow.xaml.cs",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\View\\AddIngredientWindow.xaml.cs",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\View\\AddIngredientWindow.xaml.cs",
               "ToolTip": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\View\\AddIngredientWindow.xaml.cs",
               "RelativeToolTip": "Rezept_Managment_System\\View\\AddIngredientWindow.xaml.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAwwC0AAAA2AAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAowCwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T19:59:56.242Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "UserInputLable.xaml.cs",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\userControlls\\UserInputLable.xaml.cs",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\userControlls\\UserInputLable.xaml.cs",
@@ -109,12 +99,11 @@
               "RelativeToolTip": "Rezept_Managment_System\\userControlls\\UserInputLable.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADsAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T19:13:24.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T19:13:24.043Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "UserInputLable.xaml",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\userControlls\\UserInputLable.xaml",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\userControlls\\UserInputLable.xaml",
@@ -126,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "SearchBar.xaml.cs",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\userControlls\\SearchBar.xaml.cs",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\userControlls\\SearchBar.xaml.cs",
@@ -134,29 +123,57 @@
               "RelativeToolTip": "Rezept_Managment_System\\userControlls\\SearchBar.xaml.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAgwAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T19:13:13.26Z"
+              "WhenOpened": "2024-06-30T19:13:13.26Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "SearchBar.xaml",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\userControlls\\SearchBar.xaml",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\userControlls\\SearchBar.xaml",
               "ToolTip": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\userControlls\\SearchBar.xaml",
               "RelativeToolTip": "Rezept_Managment_System\\userControlls\\SearchBar.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-30T19:13:09.746Z"
+              "WhenOpened": "2024-06-30T19:13:09.746Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Rezept_Managment_System\\MainWindow.xaml",
               "ToolTip": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\MainWindow.xaml",
               "RelativeToolTip": "Rezept_Managment_System\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-30T19:12:53.781Z"
+              "WhenOpened": "2024-06-30T19:12:53.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Rezept_Managment_System\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Rezept_Managment_System\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T08:19:44.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Classes.cs",
+              "DocumentMoniker": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\utilities\\Classes.cs",
+              "RelativeDocumentMoniker": "Rezept_Managment_System\\utilities\\Classes.cs",
+              "ToolTip": "C:\\SoftwareProjekt\\Projekt-Rezept\\Rezept-Management-System\\Rezept-Management-System\\RZM\\Rezept_Managment_System\\utilities\\Classes.cs",
+              "RelativeToolTip": "Rezept_Managment_System\\utilities\\Classes.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T07:09:21.36Z"
             }
           ]
         }

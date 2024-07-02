@@ -34,37 +34,37 @@
             <ListView x:Name="kategorilist" 
                       Grid.Column="0"/>
             <StackPanel Grid.Column="1">
-                <Button x:Name="addRezept" 
-                         Click="addRezept_Click" 
+                <Button x:Name="rezept" 
+                         Click="rezept_Click" 
                          Grid.Column="1" 
                          Width="200"
                          Height="30"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Center"
                          Margin="10"
-                         Content="Add Rezept"
+                         Content="Rezepte"
                          FontSize="20"/>
 
-                <Button x:Name="addZutat" 
-                         Click="addZutat_Click" 
+                <Button x:Name="zutaten" 
+                         Click="zutat_Click" 
                          Grid.Column="1" 
                          Width="200"
                          Height="30"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Center"
                          Margin="10"
-                         Content="Add Zutat"
+                         Content="Zutaten"
                          FontSize="20"/>
 
-                <Button x:Name="addCategory" 
-                         Click="addCategory_Click" 
+                <Button x:Name="category" 
+                         Click="category_Click" 
                          Grid.Column="1" 
                          Width="200"
                          Height="30"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Center"
                          Margin="10"
-                         Content="Add Kategorie"
+                         Content="Kategorien"
                          FontSize="20"/>
                 
                 <Button x:Name="einkausliste" 
@@ -76,6 +76,16 @@
                          HorizontalAlignment="Center"
                          Margin="10"
                          Content="Einkaufsliste"
+                         FontSize="20"/>
+                <Button x:Name="wochenPlan" 
+                         Click="wochenPlan_Click"  
+                         Grid.Column="1" 
+                         Width="200"
+                         Height="30"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center"
+                         Margin="10"
+                         Content="Wochenplan"
                          FontSize="20"/>
             </StackPanel>
            

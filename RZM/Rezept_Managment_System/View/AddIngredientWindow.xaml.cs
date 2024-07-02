@@ -43,7 +43,7 @@ namespace Rezept_Managment_System.View
             string fullPath = ManageJson.GetfullPath("data/Zutaten.json");
             List<Zutat> zutaten = ManageJson.ReadJsonFile<List<Zutat>>(fullPath);
             zutaten.Add(zutat);
-            ManageJson.WriteJsonFile(fullPath, zutat);
+            ManageJson.WriteJsonFile(fullPath, zutaten);
         }
 
         public AddIngredientWindow()
