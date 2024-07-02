@@ -4,9 +4,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rezept_Managment_System.View"
+        xmlns:userControlls="clr-namespace:Rezept_Managment_System.userControlls"
         mc:Ignorable="d"
         Title="AddCategoryWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" 
+                   Content="Kategorie:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   FontSize="20"/>
+
+            <userControlls:GenericButton Grid.Column="1"
+                                         x:Name="add"
+                                         Content="Speichern"
+                                         GenericButtonClicked="add_GenericButtonClicked"/>
+
+        </Grid>
+        <StackPanel Grid.Row="1" >
+            <userControlls:UserInputLable x:Name="name" 
+                                          InputName="Name:"/>
+            <userControlls:UserInputLableBig x:Name="description"
+                                             InputName="Beschreibung:"
+                                             Height="200"/>
+
+
+
+
+        </StackPanel>
     </Grid>
 </Window>

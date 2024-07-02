@@ -15,32 +15,31 @@ using System.Windows.Shapes;
 namespace Rezept_Managment_System.View
 {
     /// <summary>
-    /// Interaktionslogik für Ingredients.xaml
+    /// Interaktionslogik für CategoryWindow.xaml
     /// </summary>
-    public partial class Ingredients : Window
+    public partial class CategoryWindow : Window
     {
-        public Ingredients()
+        public CategoryWindow()
         {
             InitializeComponent();
         }
 
-       
-       
+        
 
         private void edit_GenericButtonClicked(object sender, EventArgs e)
         {
+            
+        }
 
+        private void add_GenericButtonClicked(object sender, EventArgs e)
+        {
+            AddCategoryWindow addCategoryWindow = new AddCategoryWindow();
+            addCategoryWindow.ShowDialog();
         }
 
         private void delete_GenericButtonClicked(object sender, EventArgs e)
         {
 
-        }
-
-        private void add_GenericButtonClicked(object sender, EventArgs e)
-        {
-            AddIngredientWindow addIngredientWindow = new AddIngredientWindow();
-            addIngredientWindow.ShowDialog();
         }
     }
 }

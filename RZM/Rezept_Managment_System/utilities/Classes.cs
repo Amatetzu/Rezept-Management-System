@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rezept_Managment_System.utilities
 {
-    internal class Classes
-    {
-    }
+    
     public class Zutat
     {
         public string Name { get; set; }
@@ -17,5 +15,11 @@ namespace Rezept_Managment_System.utilities
         public List<string> Allergene { get; set; }
         public double EnergieKcal { get; set; }
         public List<string> Kategorie { get; set; }
+    }
+
+    public class Kategorie
+    {
+        public string Name { get; set; }
+        public string Beschreibung { get; set; }
     }
 }

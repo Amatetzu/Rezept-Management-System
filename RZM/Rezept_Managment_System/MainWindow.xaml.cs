@@ -24,24 +24,29 @@ namespace Rezept_Managment_System
             kategorilist.Items.Add(new ListViewItem() { Content = searchBar.SearchText });
         }
 
-        private void addRezept_Click(object sender, RoutedEventArgs e)
+        private void rezept_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void addZutat_Click(object sender, RoutedEventArgs e)
+        private void zutat_Click(object sender, RoutedEventArgs e)
         {
          Ingredients ingredients = new Ingredients();
             ingredients.ShowDialog();
         }
 
-        private void addCategory_Click(object sender, RoutedEventArgs e)
+        private void category_Click(object sender, RoutedEventArgs e)
         {
-            AddCategoryWindow addCategoryWindow = new AddCategoryWindow();
-            addCategoryWindow.ShowDialog();
+            CategoryWindow categoryWindow = new CategoryWindow();
+            categoryWindow.ShowDialog();
         }
 
         private void einkausliste_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void wochenPlan_Click(object sender, RoutedEventArgs e)
         {
 
         }
