@@ -37,8 +37,8 @@ namespace Rezept_Managment_System
 
         private void category_Click(object sender, RoutedEventArgs e)
         {
-            AddCategoryWindow addCategoryWindow = new AddCategoryWindow();
-            addCategoryWindow.ShowDialog();
+            CategoryWindow categoryWindow = new CategoryWindow();
+            categoryWindow.ShowDialog();
         }
 
         private void einkausliste_Click(object sender, RoutedEventArgs e)
