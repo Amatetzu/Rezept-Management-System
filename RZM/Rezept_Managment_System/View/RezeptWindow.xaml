@@ -1,4 +1,4 @@
-﻿<Window x:Class="Rezept_Managment_System.View.CategoryWindow"
+﻿<Window x:Class="Rezept_Managment_System.View.RezeptWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Rezept_Managment_System.View"
         xmlns:userControlls="clr-namespace:Rezept_Managment_System.userControlls"
         mc:Ignorable="d"
-        Title="CategoryWindow" Height="450" Width="800">
+        Title="RezeptWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -15,23 +15,23 @@
 
         <StackPanel Orientation="Horizontal">
             <userControlls:GenericButton x:Name="edit"
-                                         Content="Bearbeiten"
-                                         GenericButtonClicked="edit_GenericButtonClicked"/>
+                                 Content="Bearbeiten"
+                                 GenericButtonClicked="edit_GenericButtonClicked"/>
             <userControlls:GenericButton x:Name="delete"
-                                            Content="Löschen"
-                                           GenericButtonClicked="delete_GenericButtonClicked"/>
+                                    Content="Löschen"
+                                   GenericButtonClicked="delete_GenericButtonClicked"/>
             <userControlls:GenericButton x:Name="add"
-                                            Content="Hinzufügen"
-                                            GenericButtonClicked="add_GenericButtonClicked"/>
+                                    Content="Hinzufügen"
+                                    GenericButtonClicked="add_GenericButtonClicked" />
 
             <userControlls:SearchBar Width="250" Margin="10"/>
 
         </StackPanel>
 
-        
-            
-                
-            
+
+
+
+
 
 
     </Grid>

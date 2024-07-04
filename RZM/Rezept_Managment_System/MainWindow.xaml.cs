@@ -26,7 +26,8 @@ namespace Rezept_Managment_System
 
         private void rezept_Click(object sender, RoutedEventArgs e)
         {
-
+            RezeptWindow rezeptWindow = new RezeptWindow();
+            rezeptWindow.ShowDialog();
         }
 
         private void zutat_Click(object sender, RoutedEventArgs e)
@@ -47,6 +48,11 @@ namespace Rezept_Managment_System
         }
 
         private void wochenPlan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rezept_GenericButtonClicked(object sender, EventArgs e)
         {
 
         }
