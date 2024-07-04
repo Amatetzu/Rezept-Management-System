@@ -11,32 +11,33 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Rezept_Managment_System.utilities;
 
 namespace Rezept_Managment_System.View
 {
     /// <summary>
-    /// Interaktionslogik für AddCategoryWindow.xaml
+    /// Interaktionslogik für RezeptWindow.xaml
     /// </summary>
-    public partial class AddCategoryWindow : Window
+    public partial class RezeptWindow : Window
     {
-        public AddCategoryWindow()
+        public RezeptWindow()
         {
             InitializeComponent();
-            
         }
 
         private void add_GenericButtonClicked(object sender, EventArgs e)
         {
-            var kategorie = new Kategorie()
-            {
-                Name = name.UserInput,
-                Beschreibung = description.UserInput
-            };
+            AddRezeptWindow addRezeptWindow = new AddRezeptWindow();
+            addRezeptWindow.ShowDialog();
+        }
 
-            List<Kategorie> kategorien = ManageJson.ReadJsonFile<List<Kategorie>>(ManageJson.KategorienPath);
-            kategorien.Add(kategorie);
-            ManageJson.WriteJsonFile(ManageJson.KategorienPath, kategorien);
+        private void delete_GenericButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edit_GenericButtonClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -22,6 +22,7 @@
             
             <userControlls:SearchBar x:Name="searchBar" Grid.Column="1"
                          SearchButtonClicked="searchBar_SearchButtonClicked"/>
+            
         </Grid>
 
         <Grid Grid.Row="1"> <!-- main content-->
@@ -87,6 +88,7 @@
                          Margin="10"
                          Content="Wochenplan"
                          FontSize="20"/>
+
             </StackPanel>
            
 

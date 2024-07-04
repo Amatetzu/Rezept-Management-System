@@ -40,10 +40,10 @@ namespace Rezept_Managment_System.View
                 Kategorie = ManageJson.SplitString(kategorie.UserInput)
             };
 
-            string fullPath = ManageJson.GetfullPath("data/Zutaten.json");
-            List<Zutat> zutaten = ManageJson.ReadJsonFile<List<Zutat>>(fullPath);
+            
+            List<Zutat> zutaten = ManageJson.ReadJsonFile<List<Zutat>>(ManageJson.ZutatenPath);
             zutaten.Add(zutat);
-            ManageJson.WriteJsonFile(fullPath, zutaten);
+            ManageJson.WriteJsonFile(ManageJson.ZutatenPath, zutaten);
         }
 
         public AddIngredientWindow()

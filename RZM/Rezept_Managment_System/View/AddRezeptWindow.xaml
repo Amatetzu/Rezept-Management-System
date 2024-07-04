@@ -1,0 +1,56 @@
+﻿<Window x:Class="Rezept_Managment_System.View.AddRezeptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rezept_Managment_System.View"
+        xmlns:userControlls="clr-namespace:Rezept_Managment_System.userControlls"
+        mc:Ignorable="d"
+        Title="AddRezeptWindow" Height="550" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="231*"/>
+            <RowDefinition Height="233*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" 
+               Content="Rezept:" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center"
+               FontSize="20"/>
+
+            <userControlls:GenericButton Grid.Column="1"
+                                     x:Name="add"
+                                     Content="Speichern"
+                                     GenericButtonClicked="add_GenericButtonClicked"/>
+
+        </Grid>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" >
+            <userControlls:UserInputLable x:Name="name" 
+                                      InputName="Name:"/>
+            <userControlls:UserInputLable x:Name="category"
+                                            InputName="Kategorie:"/>
+            <userControlls:UserInputLable x:Name="time"
+                                            InputName="Zeit:"/>
+            <userControlls:UserInputLable x:Name="allerg"
+                                              InputName="Allergene:"/>
+
+            <userControlls:ExpandableUserInput x:Name="ingredients"
+                                               AddButtonClicked="ingredients_AddButtonClicked"/>
+
+            <userControlls:UserInputLableBig x:Name="description"
+                                         InputName="Zubereitung:"
+                                         Height="200"/>
+
+
+
+
+        </StackPanel>
+    </Grid>
+</Window>
