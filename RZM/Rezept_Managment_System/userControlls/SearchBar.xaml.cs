@@ -23,6 +23,7 @@ namespace Rezept_Managment_System.userControlls
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler SearchButtonClicked; // Event für den Klick auf den Such-Button
+        public event EventHandler SearchFieldChanged;
 
         public SearchBar()
         {
@@ -34,6 +35,7 @@ namespace Rezept_Managment_System.userControlls
         {
             SearchText = searchfield.Text; // Setze den Wert von SearchText auf den aktuellen Text des Textfelds
             placeholder.Visibility = string.IsNullOrEmpty(SearchText) ? Visibility.Visible : Visibility.Collapsed; // Zeige den Placeholder an, wenn der Text leer ist
+            SearchFieldChanged?.Invoke(this, EventArgs.Empty);
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -45,6 +47,7 @@ namespace Rezept_Managment_System.userControlls
         {
             // Löse das Event aus, wenn der Such-Button geklickt wird
             SearchButtonClicked?.Invoke(this, EventArgs.Empty);
+            
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)

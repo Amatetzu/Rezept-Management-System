@@ -20,8 +20,18 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             
-            <userControlls:SearchBar x:Name="searchBar" Grid.Column="1"
-                         SearchButtonClicked="searchBar_SearchButtonClicked"/>
+            <userControlls:SearchBar x:Name="searchBar" 
+                                     Grid.Column="1"
+                                     SearchButtonClicked="searchBar_SearchButtonClicked"
+                                     SearchFieldChanged="searchBar_SearchFieldChanged"/>
+            <Button x:Name="refresh"
+                    Content="laden"
+                    Height="30"
+                    Width="50"
+                    FontSize="15"
+                    Grid.Column="2"
+                    Click="refresh_Click"/>
+
         </Grid>
 
         <Grid Grid.Row="1"> <!-- main content-->
@@ -31,8 +41,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <ListView x:Name="kategorilist" 
-                      Grid.Column="0"/>
+            
             <StackPanel Grid.Column="1">
                 <Button x:Name="rezept" 
                          Click="rezept_Click" 
@@ -87,8 +96,20 @@
                          Margin="10"
                          Content="Wochenplan"
                          FontSize="20"/>
+
             </StackPanel>
-           
+            
+                <ListView x:Name="categoryOverview"
+                          ItemsSource="{Binding Kategorilist}"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Margin="5"
+                          FontSize="20"
+                          MouseDoubleClick="categoryOverview_MouseDoubleClick">
+
+                </ListView>
+            
+            
 
         </Grid>
 
