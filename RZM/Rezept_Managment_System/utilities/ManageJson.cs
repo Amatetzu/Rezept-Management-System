@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -59,28 +62,31 @@ namespace Rezept_Managment_System.utilities
             }
         }
 
-       
 
-        public static Zutat SearchIngredient(string relativePath, string name)
+
+        public static List<string> AllSearch(string relativePath, string propertyName) // gibt eine Liste von Strings zurück 
         {
-            string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath); ;
-            List<Zutat> zutaten = ReadJsonFile<List<Zutat>>(fullPath);
+            List<string> resultList = new List<string>();
 
-            if (zutaten == null)
+            using (StreamReader file = File.OpenText(relativePath))
+            using (JsonTextReader reader = new JsonTextReader(file))
             {
-                MessageBox.Show("Die Zutatenliste konnte nicht geladen werden.");
-                return null;
+                JArray jsonArray = (JArray)JToken.ReadFrom(reader);
+
+                foreach (JObject item in jsonArray)
+                {
+                    // Hier propertyName verwenden, um den Wert zu extrahieren
+                    string value = item.GetValue(propertyName)?.ToString();
+                    if (value != null)
+                    {
+                        resultList.Add(value);
+                    }
+                }
             }
 
-            Zutat result = zutaten.FirstOrDefault(z => z.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
-
-            if (result == null)
-            {
-                MessageBox.Show($"Die Zutat '{name}' wurde nicht gefunden.");
-            }
-
-            return result;
+            return resultList;
         }
+
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Rezept_Managment_System.View;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,21 +9,56 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Rezept_Managment_System.View;
 
 namespace Rezept_Managment_System
 {
     public partial class MainWindow : Window
     {
+        
+
+        public void AktiveSearch()
+        {
+            var names = utilities.ManageJson.AllSearch(utilities.ManageJson.KategorienPath, "Name");
+            kategorilist.Clear();
+            foreach (var name in names)
+            {
+                if (name.ToLower().Contains(searchBar.SearchText))
+                {
+                    kategorilist.Add((string)name);
+                }
+            }
+        }
+
+        public void LoadCategory()
+        {
+            var names = utilities.ManageJson.AllSearch(utilities.ManageJson.KategorienPath, "Name");
+            kategorilist.Clear();
+            foreach (var name in names)
+            {
+                kategorilist.Add((string)name);
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // ListView for Kategorien
+            Kategorilist = new ObservableCollection<string>();
+            DataContext = this;
+            // Alle Namen aus der JSON-Datei holen
+            LoadCategory();
         }
 
-        private void searchBar_SearchButtonClicked(object sender, EventArgs e)
+        public ObservableCollection<string> Kategorilist
         {
-            kategorilist.Items.Add(new ListViewItem() { Content = searchBar.SearchText });
+            get { return kategorilist; }
+            set { kategorilist = value; }
         }
+        private ObservableCollection<string> kategorilist;
+        
+
+        
 
         private void rezept_Click(object sender, RoutedEventArgs e)
         {
@@ -32,7 +68,7 @@ namespace Rezept_Managment_System
 
         private void zutat_Click(object sender, RoutedEventArgs e)
         {
-         Ingredients ingredients = new Ingredients();
+            Ingredients ingredients = new Ingredients();
             ingredients.ShowDialog();
         }
 
@@ -44,17 +80,32 @@ namespace Rezept_Managment_System
 
         private void einkausliste_Click(object sender, RoutedEventArgs e)
         {
-
+            // Implementiere die Logik für die Einkaufsliste hier
         }
 
         private void wochenPlan_Click(object sender, RoutedEventArgs e)
         {
-
+            // Implementiere die Logik für den Wochenplan hier
         }
 
-        private void rezept_GenericButtonClicked(object sender, EventArgs e)
+        private void refresh_Click(object sender, RoutedEventArgs e)
         {
+            LoadCategory();
+        }
 
+        private void searchBar_SearchButtonClicked(object sender, EventArgs e)
+        {
+            AktiveSearch();
+        }
+
+        private void searchBar_SearchFieldChanged(object sender, EventArgs e)
+        {
+            AktiveSearch();
+        }
+
+        private void categoryOverview_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            
         }
     }
 }
