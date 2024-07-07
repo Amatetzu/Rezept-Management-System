@@ -27,7 +27,6 @@ namespace RZM_MVVM_
             DataContext = vm;
 
             // Event Handler für das MouseDoubleClick-Ereignis der gnereicList
-            gnereicList.MouseDoubleClick += gnereicList_MouseDoubleClick;
         }
 
         private void gnereicList_MouseDoubleClick(object sender, MouseButtonEventArgs e)

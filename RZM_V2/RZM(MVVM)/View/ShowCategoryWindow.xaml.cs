@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RZM_MVVM_.ViewModell;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +12,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using RZM_MVVM_.ViewModell;
+
 
 namespace RZM_MVVM_.View
 {
     /// <summary>
-    /// Interaktionslogik für ShowRezept.xaml
+    /// Interaktionslogik für ShowCategoryWindow.xaml
     /// </summary>
-    public partial class ShowRezept : Window
+    public partial class ShowCategoryWindow : Window
     {
-        public ShowRezept()
+        public ShowCategoryWindow()
         {
             InitializeComponent();
+            ShowCategoryWindowViewModel vm = new ShowCategoryWindowViewModel();
+            DataContext = vm;
         }
     }
 }

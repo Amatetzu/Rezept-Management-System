@@ -1,83 +1,81 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using RZM_MVVM_.Modell;
 using RZM_MVVM_.MVVM;
-
+using RZM_MVVM_.View;
+using GalaSoft.MvvmLight;
 namespace RZM_MVVM_.ViewModell
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        
         public string FullPath = System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath);
 
         private string _searchText;
+
         public string SearchText
-            {
+        {
             get { return _searchText; }
-            set
-            {
-                _searchText = value;
-                OnPropertyChanged(nameof(SearchText));
-            }
+            set { Set(ref _searchText, value); }
         }
 
-        public ICommand SearchCommand => new RelayCommand(execute => UpdateList());
-        public ICommand ShowCategorys => new RelayCommand(execute => CategoryShow());
-        public ICommand SchowRezepts => new RelayCommand(execute => RezeptShow());
-        public ICommand SchowIngredients => new RelayCommand(execute => IngredientShow());
-        public ICommand ItemDoubleClickCommand => new RelayCommand(execute => clearList());
+        private string _selectetItemGenericList;
+        public string SelectetItemGenericList
+        {
+            
+            get { return _selectetItemGenericList; }
+            set { Set(ref _selectetItemGenericList, value); }
+        }
 
+        private string _headerCategory;
+        public string HeaderCategory
+        {
+            get { return _headerCategory; }
+            set
+            { _headerCategory = value; }
+        }
+
+        // Commands definieren
+        public ICommand SearchCommand => new RelayCommand(UpdateList);
+        public ICommand ShowCategorys => new RelayCommand(CategoryShow);
+        public ICommand SchowRezepts => new RelayCommand(RezeptShow);
+        public ICommand SchowIngredients => new RelayCommand(IngredientShow);
 
         public ObservableCollection<string> GenericList { get; set; }
 
-
         public MainWindowViewModel()
         {
-           
             GenericList = new ObservableCollection<string>();
             UpdateList();
             ((MainWindow)Application.Current.MainWindow).ListDoubleClick += ListDoubleClickHandler;
-
         }
 
-        public int i = 0; //ich weis das das nicht schön ist aber es funktioniert bis jetzt
+        // Event-Handler für Doppelklick auf ein ListView-Item
         private void ListDoubleClickHandler(object sender, EventArgs e)
         {
             
-            if (i == 0) {
-            View.ShowRezept showRezept = new View.ShowRezept();
-            showRezept.Show();
-                i++;
-            }
-            else
-            {
-                i = 0;
-            }
-            
+
+            // ShowCategoryWindow öffnen
+            View.ShowCategoryWindow showCategory = new View.ShowCategoryWindow();
+            Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
+            showCategory.ShowDialog();
         }
+
         public void UpdateList()
         {
             if (SearchText == null)
             {
                 SearchText = "";
             }
-            List<string> resultList = new List<string>();
-            resultList = JsonUtils.ExtractStringListFromJson(FullPath, "Name");
-            List<string> filteredList = new List<string>();
-            filteredList=JsonUtils.FilterList(resultList, SearchText);
+            List<string> resultList = JsonUtils.ExtractStringListFromJson(FullPath, "Name");
+            List<string> filteredList = JsonUtils.FilterList(resultList, SearchText);
             GenericList.Clear();
             foreach (var item in filteredList)
             {
                 GenericList.Add(item);
             }
-            
-          
         }
 
         public void RezeptShow()
@@ -97,22 +95,5 @@ namespace RZM_MVVM_.ViewModell
             FullPath = System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath);
             UpdateList();
         }
-        public bool temp = false;
-        public void clearList()
-        {
-           
-            
-        }
-
-        EventHandler? ListDoubleClick (object sender, EventArgs e)
-        {
-            View.ShowRezept showRezept = new View.ShowRezept();
-            showRezept.Show();
-            return null;
-        }
-
-
-
     }
-
 }

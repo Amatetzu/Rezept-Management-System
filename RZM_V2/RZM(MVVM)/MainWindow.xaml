@@ -28,8 +28,12 @@
                       Height="300"
                       Width="300"
                       MouseDoubleClick="gnereicList_MouseDoubleClick"
-                      SelectionMode="Single">
+                      SelectionMode="Single"
+                      SelectedItem="{Binding SelectetItemGenericList}">
                 
+
+
+
             </ListView>
         </StackPanel>
     </Grid>

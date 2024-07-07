@@ -91,6 +91,8 @@ namespace RZM_MVVM_.Modell
             return filteredList.ToList();
         }
 
+        //funktion die den vollständigen pfad der datei zurückgibt
+
 
         public static string GetFullPath(string fileName) // gibt den vollständigen pfad der datei zurück
         {
@@ -106,6 +108,50 @@ namespace RZM_MVVM_.Modell
                 return null;
             }
         }
+
+
+        // funktion die eine liste mit allen namen zurück gibt die die selbe kategorie haben wie das gesuchte wort
+
+        public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter)
+        {
+            List<string> resultList = new List<string>();
+
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    throw new FileNotFoundException("Die JSON-Datei wurde nicht gefunden.", path);
+                }
+
+                using (StreamReader file = File.OpenText(path))
+                using (JsonTextReader reader = new JsonTextReader(file))
+                {
+                    JArray jsonArray = JArray.Load(reader);
+
+                    foreach (JObject item in jsonArray.Children<JObject>())
+                    {
+                        // Filterprüfung nach Category
+                        if (item.TryGetValue("Category", out JToken categoryValue) && categoryValue.ToString().Contains(filter))
+                        {
+                            // Extrahiere den Wert des "Name" Attributes
+                            if (item.TryGetValue("Name", out JToken nameValue))
+                            {
+                                resultList.Add(nameValue.ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Lesen der JSON-Datei: {ex.Message}");
+                MessageBox.Show($"Fehler beim Lesen der JSON-Datei: {ex.Message}");
+            }
+
+            return resultList;
+        }
+
+
 
     }
 

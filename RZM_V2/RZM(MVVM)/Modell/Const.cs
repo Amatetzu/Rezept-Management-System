@@ -13,4 +13,6 @@ namespace RZM_MVVM_.Modell
         public const string KategorienJsonPath = "Data/Kategorien.json";
         public string FullRezeptJsonPath= System.IO.Path.GetFullPath(RezeptJsonPath);
     }
+
+    
 }
