@@ -91,7 +91,6 @@ namespace RZM_MVVM_.Modell
             return filteredList.ToList();
         }
 
-        //funktion die den vollständigen pfad der datei zurückgibt
 
 
         public static string GetFullPath(string fileName) // gibt den vollständigen pfad der datei zurück
@@ -112,7 +111,7 @@ namespace RZM_MVVM_.Modell
 
         // funktion die eine liste mit allen namen zurück gibt die die selbe kategorie haben wie das gesuchte wort
 
-        public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter)
+        public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter) //funktioniert noch nicht wirklich (vielleicht sind auch die daten falsch)
         {
             List<string> resultList = new List<string>();
 
@@ -152,6 +151,10 @@ namespace RZM_MVVM_.Modell
         }
 
 
+        public static List<T> GetOneFullData<T>(string path, string name) // gibt alle daten zurück die den namen enthalten
+        {
+            return JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path)).Where(x => x.GetType().GetProperty("Name").GetValue(x).ToString() == name).ToList();
+        }
 
     }
 

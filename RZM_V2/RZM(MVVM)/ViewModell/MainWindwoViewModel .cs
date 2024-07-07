@@ -55,12 +55,28 @@ namespace RZM_MVVM_.ViewModell
         // Event-Handler für Doppelklick auf ein ListView-Item
         private void ListDoubleClickHandler(object sender, EventArgs e)
         {
+
             
 
+            if (FullPath== System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
+            {                ShowRezeptWindow showWindow = new ShowRezeptWindow();
+                Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
+                showWindow.ShowDialog();
+            }
+            else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
+            {
+                //ShowIngredientWindow();
+            }
+            else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
+            {
+                View.ShowCategoryWindow showWindow = new View.ShowCategoryWindow();
+                Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
+                showWindow.ShowDialog();
+            }
+
             // ShowCategoryWindow öffnen
-            View.ShowCategoryWindow showCategory = new View.ShowCategoryWindow();
-            Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
-            showCategory.ShowDialog();
+            
+            
         }
 
         public void UpdateList()
