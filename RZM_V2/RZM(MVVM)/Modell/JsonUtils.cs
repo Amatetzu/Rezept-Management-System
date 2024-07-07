@@ -109,7 +109,7 @@ namespace RZM_MVVM_.Modell
         }
 
 
-        // funktion die eine liste mit allen namen zurück gibt die die selbe kategorie haben wie das gesuchte wort
+        
 
         public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter) //funktioniert noch nicht wirklich (vielleicht sind auch die daten falsch)
         {
@@ -154,6 +154,45 @@ namespace RZM_MVVM_.Modell
         public static List<T> GetOneFullData<T>(string path, string name) // gibt alle daten zurück die den namen enthalten
         {
             return JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path)).Where(x => x.GetType().GetProperty("Name").GetValue(x).ToString() == name).ToList();
+        }
+
+        public static void UpdateJson<T>(string path, string name, T newData) where T : class
+        {
+           
+            List<T> data = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path));
+            data.RemoveAll(x => x.GetType().GetProperty("Name").GetValue(x).ToString() == name);
+            data.Add(newData);
+            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
+
+        }
+
+        public static void DeleteJson<T>(string path, string name) where T : class
+        {
+            List<T> data = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path));
+            data.RemoveAll(x => x.GetType().GetProperty("Name").GetValue(x).ToString() == name);
+            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
+        }
+
+        public static List<ZutatReferenz> CombineZutaten(ObservableCollection<String> dataList)
+        {
+            List<ZutatReferenz> resultList = new List<ZutatReferenz>();
+            for (int i = 0; i < dataList.Count; i++)
+            {
+                ZutatReferenz data = new ZutatReferenz();
+                data.Name = dataList[i].Split(' ')[0];
+                data.Menge = double.Parse(dataList[i].Split(' ')[1]);
+                resultList.Add(data);
+            }
+            return resultList;
+        }
+
+        public static void SortJsonFile (string path)
+        {
+
+        //sortiert die json datei nach dem namen
+            List<Rezept> data = JsonConvert.DeserializeObject<List<Rezept>>(File.ReadAllText(path));
+            data = data.OrderBy(x => x.Name).ToList();
+            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
         }
 
     }

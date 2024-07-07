@@ -16,6 +16,7 @@ namespace RZM_MVVM_.ViewModell
         public string FullPath = System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath);
 
         public ICommand TestCommand => new RelayCommand(TestFunktion);
+        public ICommand EditCommand => new RelayCommand(EditRezept);
 
         private string _headerRezept;
         public string HeaderRezept
@@ -79,6 +80,13 @@ namespace RZM_MVVM_.ViewModell
         {
             Messenger.Default.Unregister(this);
             base.Cleanup();
+        }
+
+        public void EditRezept()
+        {
+            View.EditRezeptWindow editRezeptWindow = new View.EditRezeptWindow();
+            Messenger.Default.Send(new UpdateHeaderMessage(HeaderRezept));
+            editRezeptWindow.ShowDialog();
         }
     }
 }
