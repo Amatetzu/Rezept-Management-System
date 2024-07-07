@@ -1,0 +1,28 @@
+﻿<Window x:Class="RZM_MVVM_.View.AddRezeptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RZM_MVVM_.View"
+        mc:Ignorable="d"
+        Title="AddRezeptWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Rezeptname"
+                       FontSize="20" FontWeight="Bold" Margin="10"/>
+            <TextBox Text="{Binding RezeptName}"
+                     FontSize="20" FontWeight="Bold" Margin="10"/>
+            <TextBlock Text="Zutaten"
+                       FontSize="20" FontWeight="Bold" Margin="10"/>
+            <TextBox Text="{Binding RezeptZutaten}"
+                     FontSize="20" FontWeight="Bold" Margin="10"/>
+            <TextBlock Text="Zubereitung"
+                       FontSize="20" FontWeight="Bold" Margin="10"/>
+            <TextBox Text="{Binding RezeptZubereitung}"
+                     FontSize="20" FontWeight="Bold" Margin="10"/>
+            <Button Content="Speichern"
+                    Command="{Binding SaveCommand}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
