@@ -55,11 +55,10 @@ namespace RZM_MVVM_.ViewModell
         // Event-Handler für Doppelklick auf ein ListView-Item
         private void ListDoubleClickHandler(object sender, EventArgs e)
         {
-
-            
-
-            if (FullPath== System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
-            {                ShowRezeptWindow showWindow = new ShowRezeptWindow();
+            if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
+            {
+                ShowRezeptWindow showWindow = new ShowRezeptWindow();
+                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
                 Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
                 showWindow.ShowDialog();
             }
@@ -70,13 +69,16 @@ namespace RZM_MVVM_.ViewModell
             else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
             {
                 View.ShowCategoryWindow showWindow = new View.ShowCategoryWindow();
+                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
                 Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
                 showWindow.ShowDialog();
             }
+        }
 
-            // ShowCategoryWindow öffnen
-            
-            
+        private void ShowWindow_Closed(object sender, EventArgs e)
+        {
+            // Code, der ausgeführt wird, wenn das modale Fenster geschlossen wird
+            UpdateList();
         }
 
         public void UpdateList()
@@ -111,5 +113,7 @@ namespace RZM_MVVM_.ViewModell
             FullPath = System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath);
             UpdateList();
         }
+
+       
     }
 }

@@ -6,6 +6,7 @@
         xmlns:behaviors="clr-namespace:RZM_MVVM_.Behaviors"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:RZM_MVVM_"
+        xmlns:userControlls="clr-namespace:RZM_MVVM_.UserControlls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     
@@ -21,6 +22,7 @@
                 <Button Content="Kategorie" Width="100" Height="30" Margin="10" Command="{Binding ShowCategorys}"/>
                 <Button Content="Rezepte" Width="100" Height="30" Margin="10" Command="{Binding SchowRezepts}"/>
                 <Button Content="Zutaten" Width="100" Height="30" Margin="10" Command="{Binding SchowIngredients}"/>
+                
             </StackPanel>
             <ListView x:Name="gnereicList"
                       ItemsSource="{Binding GenericList}"
