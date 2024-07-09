@@ -7,6 +7,7 @@ using RZM_MVVM_.Modell;
 using RZM_MVVM_.MVVM;
 using RZM_MVVM_.View;
 using GalaSoft.MvvmLight;
+using System.Diagnostics;
 namespace RZM_MVVM_.ViewModell
 {
     public class MainWindowViewModel : ViewModelBase
@@ -24,7 +25,7 @@ namespace RZM_MVVM_.ViewModell
         private string _selectetItemGenericList;
         public string SelectetItemGenericList
         {
-            
+
             get { return _selectetItemGenericList; }
             set { Set(ref _selectetItemGenericList, value); }
         }
@@ -35,6 +36,13 @@ namespace RZM_MVVM_.ViewModell
             get { return _headerCategory; }
             set
             { _headerCategory = value; }
+        }
+
+        private string _headerMain;
+        public string HeaderMain
+        {
+            get { return _headerMain; }
+            set { Set(ref _headerMain, value); }
         }
 
         // Commands definieren
@@ -50,6 +58,7 @@ namespace RZM_MVVM_.ViewModell
             GenericList = new ObservableCollection<string>();
             UpdateList();
             ((MainWindow)Application.Current.MainWindow).ListDoubleClick += ListDoubleClickHandler;
+            HeaderMain = "Rezepte";
         }
 
         // Event-Handler für Doppelklick auf ein ListView-Item
@@ -77,8 +86,10 @@ namespace RZM_MVVM_.ViewModell
 
         private void ShowWindow_Closed(object sender, EventArgs e)
         {
-            // Code, der ausgeführt wird, wenn das modale Fenster geschlossen wird
+            // Co
+            // de, der ausgeführt wird, wenn das modale Fenster geschlossen wird
             UpdateList();
+            MessageBox.Show("Fenster geschlossen");
         }
 
         public void UpdateList()
@@ -100,20 +111,66 @@ namespace RZM_MVVM_.ViewModell
         {
             FullPath = System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath);
             UpdateList();
+            HeaderMain = "Rezepte";
         }
 
         public void IngredientShow()
         {
+            HeaderMain = "Zutaten";
             FullPath = System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath);
             UpdateList();
+
         }
 
         public void CategoryShow()
         {
             FullPath = System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath);
             UpdateList();
+            HeaderMain = "Kategorien";
         }
 
-       
+
+        //COmands Edit ADD Delet
+        public ICommand EditCommand => new RelayCommand(OpenEditWindow);
+
+        public void OpenEditWindow()
+        {
+            if (SelectetItemGenericList != null)
+            {
+                if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
+                {
+
+                    //OpenEditRezeptWindow(SelectetItemGenericList);
+                }
+                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
+                {
+                    OpenEditZutatWindow(SelectetItemGenericList);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Nichtsausgewählt");
+            }
+
+        }
+
+        private void OpenEditRezeptWindow(string selectItem)
+        {
+            View.EditRezeptWindow showWindow = new View.EditRezeptWindow();
+            showWindow.Owner = Application.Current.MainWindow; // Setzt das Hauptfenster als Eigentümer
+            showWindow.Closed += ShowWindow_Closed;
+            Messenger.Default.Send(new UpdateHeaderMessage(selectItem));
+            showWindow.ShowDialog();
+        }
+        private void OpenEditZutatWindow(string selectItem)
+        {
+           View.EditZutatWindow showWondow = new View.EditZutatWindow();
+            showWondow.Owner = Application.Current.MainWindow;
+            showWondow.Closed += ShowWindow_Closed;
+            Messenger.Default.Send(new UpdateZutatMessage(selectItem));
+            showWondow.ShowDialog();
+        }
+
     }
 }

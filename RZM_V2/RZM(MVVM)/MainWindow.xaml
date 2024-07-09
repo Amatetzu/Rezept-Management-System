@@ -12,13 +12,17 @@
     
     <Grid Background="White">
         <StackPanel>
-            <Grid>
-                <TextBlock Text="Rezeptverwaltung"
-                       FontSize="30" FontWeight="Bold" Margin="10"
-                       HorizontalAlignment="Center"/>
 
-            
-                <TextBox x:Name="searchBar"
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding HeaderMain}"
+          FontSize="20" FontWeight="Bold" Margin="10" Width="200"/>
+                <Button Content="Add" Width="100" Height="30" Margin="10" Command="{Binding AddCommand}"/>
+                <Button Content="Edit" Width="100" Height="30" Margin="10" Command="{Binding EditCommand}"/>
+                <Button Content="Delete" Width="100" Height="30" Margin="10" Command="{Binding DeleteCommand}"/>
+                
+            </StackPanel>
+            <TextBox x:Name="searchBar"
+
                         Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         Width="200"
                         Height="30"

@@ -23,10 +23,12 @@
                      FontSize="20" Margin="5"/>
             <Button Content="Speichern"
                     Command="{Binding SaveCommand}"
+
                     Height="30"
                     Width="100"
                     HorizontalAlignment="Left"
                     Margin="10"/>
+
 
 
         </StackPanel>
