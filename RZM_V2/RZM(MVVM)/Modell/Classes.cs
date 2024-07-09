@@ -24,7 +24,7 @@ namespace RZM_MVVM_.Modell
         public string Name { get; set; } = "Unbekanntes Rezept";
         public List<ZutatReferenz> Zutaten { get; set; } = new List<ZutatReferenz>();
         public string Zubereitung { get; set; } = "Keine Zubereitungsanweisung vorhanden";
-        public List<string> Kategorien { get; set; } = new List<string> { "Allgemein" };
+        public List<string> Kategorien { get; set; }
         public List<string> Allergene { get; set; } = new List<string>();
         public int Zeit { get; set; } = 0; // in Minuten
     }

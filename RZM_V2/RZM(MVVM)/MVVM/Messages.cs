@@ -18,4 +18,13 @@ namespace RZM_MVVM_.MVVM
             NewHeader = newHeader;
         }
     }
+    public class UpdateZutatMessage : MessageBase
+    {
+        public string NewZutat { get; private set; }
+
+        public UpdateZutatMessage(string newZutat)
+        {
+            NewZutat = newZutat;
+        }
+    }
 }

@@ -107,8 +107,13 @@ namespace RZM_MVVM_.ViewModell
             rezept.Allergene = Allergene.Split(',').ToList();
             JsonUtils.UpdateJson<Rezept>(FullPath, OldName, rezept);
             JsonUtils.SortJsonFile(FullPath);
-            Window window = Application.Current.Windows[2];
-            window.Close();
+            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            if (currentWindow != null)
+            {
+                
+                currentWindow.Close();
+            }
+
         }
 
         private void DeleteRezeptFromJSON()
@@ -117,24 +122,31 @@ namespace RZM_MVVM_.ViewModell
             if (result == MessageBoxResult.Yes)
             {
                 JsonUtils.DeleteJson<Rezept>(FullPath, OldName);
-                Window window = Application.Current.Windows[2];
-                Window window1 = Application.Current.Windows[1];
-                window1.Close();
-                window.Close();
+                Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                if (currentWindow != null)
+                {
+                    Window ownerWindow = currentWindow.Owner;
+                    if (ownerWindow != null && ownerWindow.GetType() == typeof(View.ShowRezeptWindow))
+                    {
+                        ownerWindow.Close();
+                    }
+                    currentWindow.Close();
+                }
             }
-            
         }
-        
+
+    
 
 
 
 
 
 
-        // beginn der zutaten logic
 
-        // variablen für die zutaten
-        private ObservableCollection<string> zutatenList;
+    // beginn der zutaten logic
+
+    // variablen für die zutaten
+    private ObservableCollection<string> zutatenList;
         public ObservableCollection<string> ZutatenList
         {
             get { return zutatenList; }
@@ -187,6 +199,7 @@ namespace RZM_MVVM_.ViewModell
         public ICommand AddZutat => new RelayCommand(AddZutatenToList);
         public ICommand SearchZutatenCommand => new RelayCommand(SearchZutaten);
         public ICommand ItemClickCommand => new RelayCommand(OnItemClick);
+        public ICommand EditZutat => new RelayCommand(EditZutaten);
         private bool _isPopupOpen;
         public bool IsPopupOpen
         {
@@ -240,6 +253,10 @@ namespace RZM_MVVM_.ViewModell
             {
                 IsSearchPopupOpen = true;
                 UpdateZutaten();
+                if (SearchedZutatenList.Count == 0)
+                {
+                    IsSearchPopupOpen = false;
+                }
                 
             }
             else
@@ -267,6 +284,22 @@ namespace RZM_MVVM_.ViewModell
             {
                 ZutatenName = SelectedSearchedZutat;
                 IsSearchPopupOpen = false;
+            }
+            else
+            {
+                MessageBox.Show("Keine Zutat ausgewählt.");
+            }
+        }
+
+       private void EditZutaten()
+        {
+            if (SelectedZutat != null)
+            {
+                List<string> tempzutat = SelectedZutat.Split(' ').ToList();
+                ZutatenName = tempzutat[0];
+                ZutatenMenge = tempzutat[1];
+                ZutatenList.Remove(SelectedZutat);
+
             }
             else
             {

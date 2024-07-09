@@ -1,0 +1,26 @@
+﻿<Window x:Class="RZM_MVVM_.View.EditZutatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RZM_MVVM_.View"
+        mc:Ignorable="d"
+        Title="EditZutatWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Label Content="Zutat" />
+            <TextBox Text="{Binding EditZutat.Name}" />
+            <Label Content="Menge" />
+            <TextBox Text="{Binding EditZutat.Menge}" />
+            <Label Content="Einheit" />
+            <TextBox Text="{Binding EditZutat.Einheit}" />
+            <Label Content="Allergene"/>
+            <TextBox Text="{Binding EditZutat.Allergene}" />
+            <Label Content="Kategorie"/>
+            <TextBox Text="{Binding EditZutat.KategorieNamen}" />
+            <Label Content="Energie"/>
+            <TextBox Text="{Binding EditZutat.EnergieKcal}" />
+            <Button Content="Speichern" Command="{Binding SaveZutatenCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>

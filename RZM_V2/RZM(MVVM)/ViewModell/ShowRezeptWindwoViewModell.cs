@@ -85,6 +85,7 @@ namespace RZM_MVVM_.ViewModell
         public void EditRezept()
         {
             View.EditRezeptWindow editRezeptWindow = new View.EditRezeptWindow();
+            editRezeptWindow.Owner = Application.Current.Windows.OfType<View.ShowRezeptWindow>().FirstOrDefault();
             Messenger.Default.Send(new UpdateHeaderMessage(HeaderRezept));
             editRezeptWindow.ShowDialog();
         }
