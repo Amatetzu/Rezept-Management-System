@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RZM(MVVM)", "RZM(MVVM).csproj", "{432A9496-84C5-4AB6-9336-AAA6C1CBAD9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{432A9496-84C5-4AB6-9336-AAA6C1CBAD9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432A9496-84C5-4AB6-9336-AAA6C1CBAD9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432A9496-84C5-4AB6-9336-AAA6C1CBAD9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432A9496-84C5-4AB6-9336-AAA6C1CBAD9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C590B53-AF83-4382-A106-BD7DE2FBC060}
+	EndGlobalSection
+EndGlobal
