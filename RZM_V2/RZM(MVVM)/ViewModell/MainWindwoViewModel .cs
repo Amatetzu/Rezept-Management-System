@@ -86,10 +86,10 @@ namespace RZM_MVVM_.ViewModell
 
         private void ShowWindow_Closed(object sender, EventArgs e)
         {
-            // Co
+           
             // de, der ausgeführt wird, wenn das modale Fenster geschlossen wird
             UpdateList();
-            MessageBox.Show("Fenster geschlossen");
+          
         }
 
         public void UpdateList()
@@ -140,7 +140,7 @@ namespace RZM_MVVM_.ViewModell
                 if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
                 {
 
-                    //OpenEditRezeptWindow(SelectetItemGenericList);
+                    OpenEditRezeptWindow(SelectetItemGenericList);
                 }
                 else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
                 {

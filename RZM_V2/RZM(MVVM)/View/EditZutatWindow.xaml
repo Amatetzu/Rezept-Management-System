@@ -15,12 +15,12 @@
             <Label Content="Einheit" />
             <TextBox Text="{Binding EditZutat.Einheit}" />
             <Label Content="Allergene"/>
-            <TextBox Text="{Binding EditZutat.Allergene}" />
+            <TextBox Text="{Binding AllergenList, UpdateSourceTrigger=PropertyChanged}" />
             <Label Content="Kategorie"/>
-            <TextBox Text="{Binding EditZutat.KategorieNamen}" />
+            <TextBox Text="{Binding KategorieList, UpdateSourceTrigger=PropertyChanged}" />
             <Label Content="Energie"/>
             <TextBox Text="{Binding EditZutat.EnergieKcal}" />
-            <Button Content="Speichern" Command="{Binding SaveZutatenCommand}" />
+            <Button Content="Speichern" Command="{Binding UpdateZutatCommand}" />
         </StackPanel>
     </Grid>
 </Window>

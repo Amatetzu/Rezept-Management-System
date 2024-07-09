@@ -4,8 +4,8 @@ using GalaSoft.MvvmLight.Messaging;
 using RZM_MVVM_.Modell;
 using RZM_MVVM_.MVVM;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
@@ -15,15 +15,37 @@ namespace RZM_MVVM_.ViewModell
     {
         private string oldName { get; set; }
         private Zutat _editZutat;
-        public string FullPath = System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath);
+        public string FullPath = Path.GetFullPath(ConstValues.ZutatenJsonPath);
         public List<Zutat> zutats { get; set; }
+
+        private string _allergenList;
+        private string _kategorieList;
+
+        public string AllergenList
+        {
+            get { return _allergenList; }
+            set
+            {
+                Set(ref _allergenList, value);
+                EditZutat.Allergene = value.Split(',').Select(s => s.Trim()).ToList();
+            }
+        }
+
+        public string KategorieList
+        {
+            get { return _kategorieList; }
+            set
+            {
+                Set(ref _kategorieList, value);
+                EditZutat.KategorieNamen = value.Split(',').Select(s => s.Trim()).ToList();
+            }
+        }
+
+        public ICommand UpdateZutatCommand => new RelayCommand(StoraData);
 
         public EditZutatWindowViewModel()
         {
-            // Messenger.Default.Register<UpdateHeaderMessage>(this, HandleUpdateHeaderMessage);
             Messenger.Default.Register<UpdateZutatMessage>(this, HandleUpdateZutatMessage);
-
-            // Initialisiere EditZutat
             EditZutat = new Zutat();
         }
 
@@ -43,21 +65,15 @@ namespace RZM_MVVM_.ViewModell
 
             EditZutat.Name = message.NewZutat;
             oldName = EditZutat.Name;
+            UpdateList();
         }
 
-        private void HandleUpdateHeaderMessage(UpdateHeaderMessage message)
+        private void StoraData()
         {
-            if (EditZutat == null)
-            {
-                MessageBox.Show("Fehler: EditZutat ist null.");
-                return;
-            }
-
-            EditZutat.Name = "test";
-            oldName = EditZutat.Name;
+            UpdateZutat(FullPath, oldName);
         }
 
-        private void UpdateRezept()
+        private void UpdateList()
         {
             zutats = JsonUtils.GetOneFullData<Zutat>(FullPath, oldName);
             if (zutats == null)
@@ -65,7 +81,9 @@ namespace RZM_MVVM_.ViewModell
                 MessageBox.Show("Fehler: Zutat konnte nicht geladen werden.");
                 return;
             }
-            EditZutat= zutats[0];
+            EditZutat = zutats[0];
+            AllergenList = string.Join(", ", EditZutat.Allergene);
+            KategorieList = string.Join(", ", EditZutat.KategorieNamen);
         }
 
         public Zutat EditZutat
@@ -79,5 +97,20 @@ namespace RZM_MVVM_.ViewModell
             Messenger.Default.Unregister(this);
             base.Cleanup();
         }
+
+        private void UpdateZutat(string path, string name)
+        {
+            EditZutat.KategorieNamen = KategorieList.Split(',').ToList();
+            EditZutat.Allergene = AllergenList.Split(',').ToList();
+            
+            JsonUtils.UpdateJson<Zutat>(FullPath, name, EditZutat);
+            JsonUtils.SortJsonFileZutat(FullPath);
+            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            if (currentWindow != null)
+            {
+                currentWindow.Close();
+            }
+        }
+
     }
 }
