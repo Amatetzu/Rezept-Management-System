@@ -12,18 +12,27 @@
     
     <Grid Background="White">
         <StackPanel>
-            <TextBox x:Name="searchBar"
+            <Grid>
+                <TextBlock Text="Rezeptverwaltung"
+                       FontSize="30" FontWeight="Bold" Margin="10"
+                       HorizontalAlignment="Center"/>
+
+            
+                <TextBox x:Name="searchBar"
                         Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         Width="200"
                         Height="30"
                         Margin="10"
+                        HorizontalAlignment="Right"
                         behaviors:TextChangedBehavior.Command="{Binding SearchCommand}"/>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Kategorie" Width="100" Height="30" Margin="10" Command="{Binding ShowCategorys}"/>
-                <Button Content="Rezepte" Width="100" Height="30" Margin="10" Command="{Binding SchowRezepts}"/>
-                <Button Content="Zutaten" Width="100" Height="30" Margin="10" Command="{Binding SchowIngredients}"/>
-                
-            </StackPanel>
+            </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Kategorie" Width="100" Height="30" Margin="10" Command="{Binding ShowCategorys}"/>
+                    <Button Content="Rezepte" Width="100" Height="30" Margin="10" Command="{Binding SchowRezepts}"/>
+                    <Button Content="Zutaten" Width="100" Height="30" Margin="10" Command="{Binding SchowIngredients}"/>
+
+                </StackPanel>
+            
             <ListView x:Name="gnereicList"
                       ItemsSource="{Binding GenericList}"
                       Margin="10"
