@@ -20,7 +20,8 @@
             <TextBox Text="{Binding KategorieList, UpdateSourceTrigger=PropertyChanged}" />
             <Label Content="Energie"/>
             <TextBox Text="{Binding EditZutat.EnergieKcal}" />
-            <Button Content="Speichern" Command="{Binding UpdateZutatCommand}" />
+            <Button Content="Speichern" Command="{Binding UpdateZutatCommand}" Margin=" 5" />
+            <Button Content="Löschen" Command="{Binding DeleteZutatCommand}" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>

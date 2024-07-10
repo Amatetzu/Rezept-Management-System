@@ -42,6 +42,7 @@ namespace RZM_MVVM_.ViewModell
         }
 
         public ICommand UpdateZutatCommand => new RelayCommand(StoraData);
+        public ICommand DeleteZutatCommand => new RelayCommand(DeleteZutat);
 
         public EditZutatWindowViewModel()
         {
@@ -72,6 +73,19 @@ namespace RZM_MVVM_.ViewModell
         {
             UpdateZutat(FullPath, oldName);
         }
+
+        private void DeleteZutat() {
+            MessageBoxResult result = MessageBox.Show("Wollen SIe die Zutat wirklich Löschen?", "Löschen", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes )
+            {
+                JsonUtils.DeleteJson<Zutat>(FullPath, oldName);
+                Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                if (currentWindow != null)
+                {
+                    currentWindow.Close();
+                }
+            }
+                }
 
         private void UpdateList()
         {
