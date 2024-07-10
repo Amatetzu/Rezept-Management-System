@@ -8,17 +8,31 @@
         Title="ShowRezeptWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            
-                    <TextBlock Text="{Binding HeaderRezept}"
-                       FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBlock Text="{Binding RezeptName}"
-                       FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBlock Text="{Binding RezeptZutaten}"
-                       FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBlock Text="{Binding RezeptZubereitung}"
-                       FontSize="20" FontWeight="Bold" Margin="10"/>
-            <Button Content="bearbeiten"
-                    Command="{Binding EditCommand}"/>
+            <Grid>
+                <TextBlock Text="Bolongnese"
+                       FontSize="30" FontWeight="Bold" Margin="10"
+                       HorizontalAlignment="Center"/>
+                <Button Content="bearbeiten"
+                    Command="{Binding EditCommand}"
+                    Margin="10"
+                    Width="100"
+                    Height="30"
+                    HorizontalAlignment="Right"/>
+
+            </Grid>
+
+
+            <TextBlock Text="Benötigte Zutaten:"
+                       FontSize="20" FontWeight="Bold" Margin="10"
+                       HorizontalAlignment="Left"/>
+            <TextBlock Text="Lorem Ipsum"
+                       FontSize="20"  Margin="10"
+                       HorizontalAlignment="Center"/>   
+            <TextBlock Text="Zubereitung:"
+                          FontSize="20" FontWeight="Bold" Margin="10"/>
+            <TextBlock Text="Lorem Ipsum"
+                       FontSize="20"  Margin="10"
+                          HorizontalAlignment="Center"/>
             
 
 

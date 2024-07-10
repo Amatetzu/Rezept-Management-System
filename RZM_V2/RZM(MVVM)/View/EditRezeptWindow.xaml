@@ -8,6 +8,8 @@
         xmlns:local="clr-namespace:RZM_MVVM_.View"
         mc:Ignorable="d"
         Title="EditRezeptWindow" Height="550" Width="800">
+   
+    
     <Grid>
         <StackPanel>
             <TextBlock Text="Rezeptname"

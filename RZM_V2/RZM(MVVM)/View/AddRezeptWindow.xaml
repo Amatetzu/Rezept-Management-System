@@ -10,19 +10,27 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="Rezeptname"
-                       FontSize="20" FontWeight="Bold" Margin="10"/>
+                       FontSize="20" FontWeight="Bold" Margin="10 "/>
             <TextBox Text="{Binding RezeptName}"
-                     FontSize="20"  Margin="10"/>
+                     FontSize="20"  Margin="5"/>
             <TextBlock Text="Zutaten"
                        FontSize="20" FontWeight="Bold" Margin="10"/>
-            <userControlls:ExpandableUserInput />
+            <userControlls:ExpandableUserInput
+                    Margin="5"/>
             <TextBlock Text="Zubereitung"
                        FontSize="20" FontWeight="Bold" Margin="10"/>
             <TextBox Text="{Binding RezeptZubereitung}"
-                     FontSize="20" Margin="10"/>
+                     FontSize="20" Margin="5"/>
             <Button Content="Speichern"
-                    Command="{Binding SaveCommand}"/>
-            
+                    Command="{Binding SaveCommand}"
+
+                    Height="30"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Margin="10"/>
+
+
+
         </StackPanel>
 
     </Grid>
