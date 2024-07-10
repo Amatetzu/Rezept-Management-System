@@ -59,29 +59,32 @@ namespace RZM_MVVM_.ViewModell
             UpdateList();
             ((MainWindow)Application.Current.MainWindow).ListDoubleClick += ListDoubleClickHandler;
             HeaderMain = "Rezepte";
+            Application.Current.MainWindow.Closed += (s, e) => Application.Current.Shutdown();
         }
 
         // Event-Handler für Doppelklick auf ein ListView-Item
         private void ListDoubleClickHandler(object sender, EventArgs e)
         {
+            var showWindow = new Window();
             if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
             {
-                ShowRezeptWindow showWindow = new ShowRezeptWindow();
-                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
+                showWindow = new ShowRezeptWindow();
                 Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
-                showWindow.ShowDialog();
+
             }
             else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
             {
-                //ShowIngredientWindow();
+                showWindow = new ShowZutatWindow();
+                Messenger.Default.Send(new UpdateZutatMessage(SelectetItemGenericList));
             }
             else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
             {
-                View.ShowCategoryWindow showWindow = new View.ShowCategoryWindow();
-                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
-                Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
-                showWindow.ShowDialog();
+                showWindow = new ShowCategoryWindow();
+                
             }
+            showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
+            
+            showWindow.ShowDialog();
         }
 
         private void ShowWindow_Closed(object sender, EventArgs e)
@@ -165,12 +168,13 @@ namespace RZM_MVVM_.ViewModell
         }
         private void OpenEditZutatWindow(string selectItem)
         {
-           View.EditZutatWindow showWondow = new View.EditZutatWindow();
-            showWondow.Owner = Application.Current.MainWindow;
-            showWondow.Closed += ShowWindow_Closed;
-            Messenger.Default.Send(new UpdateZutatMessage(selectItem));
-            showWondow.ShowDialog();
+            View.EditZutatWindow showWindow = new View.EditZutatWindow();
+            showWindow.Owner = Application.Current.MainWindow; // Setzt das Hauptfenster als Eigentümer
+            showWindow.Closed += ShowWindow_Closed;
+            Messenger.Default.Send(new UpdateHeaderMessage(selectItem));
+            showWindow.ShowDialog();
         }
+
 
     }
 }

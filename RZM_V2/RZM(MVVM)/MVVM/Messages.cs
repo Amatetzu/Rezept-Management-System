@@ -27,4 +27,13 @@ namespace RZM_MVVM_.MVVM
             NewZutat = newZutat;
         }
     }
+    public class UpdateStateMessenger : MessageBase
+    {
+        public bool Delete { get; private set; }
+
+        public UpdateStateMessenger(bool delete)
+        {
+            Delete = delete;
+        }
+    }
 }

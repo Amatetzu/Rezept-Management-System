@@ -50,6 +50,7 @@ namespace RZM_MVVM_.ViewModell
 
             // Initial Rezept laden
             UpdateRezeptZubereitung();
+            Application.Current.MainWindow.Closed += (s, e) => Application.Current.Shutdown();
         }
 
         public void TestFunktion()

@@ -86,7 +86,7 @@ namespace RZM_MVVM_.ViewModell
             zutats = rezept.Zutaten;
             for (int i = 0; i < zutats.Count; i++)
             {
-                ZutatenList.Add(zutats[i].Name + " " + zutats[i].Menge);
+                ZutatenList.Add(zutats[i].Name + "; " + zutats[i].Menge);
             }
             Kategorien = string.Join(", ", rezept.Kategorien);
             Allergene = string.Join(", ", rezept.Allergene);

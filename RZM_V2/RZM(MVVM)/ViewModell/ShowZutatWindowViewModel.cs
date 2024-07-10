@@ -3,15 +3,16 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using RZM_MVVM_.Modell;
 using RZM_MVVM_.MVVM;
+using RZM_MVVM_.View;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
 namespace RZM_MVVM_.ViewModell
 {
-    internal class EditZutatWindowViewModel : ViewModelBase
+    internal class ShowZutatWindowViewModel : ViewModelBase
     {
         private string oldName { get; set; }
         private Zutat _editZutat;
@@ -41,10 +42,9 @@ namespace RZM_MVVM_.ViewModell
             }
         }
 
-        public ICommand UpdateZutatCommand => new RelayCommand(StoraData);
-        public ICommand DeleteZutatCommand => new RelayCommand(DeleteZutat);
+        public ICommand EditZutatCommand => new RelayCommand(EditData);
 
-        public EditZutatWindowViewModel()
+        public ShowZutatWindowViewModel()
         {
             Messenger.Default.Register<UpdateZutatMessage>(this, HandleUpdateZutatMessage);
             EditZutat = new Zutat();
@@ -68,29 +68,29 @@ namespace RZM_MVVM_.ViewModell
             oldName = EditZutat.Name;
             UpdateList();
         }
-
-        private void StoraData()
+        private event EventHandler Closed;
+        private void ShowWindow_Closed(object sender, System.EventArgs e)
         {
-            UpdateZutat(FullPath, oldName);
-        }
-
-        private void DeleteZutat()
-        {
-            MessageBoxResult result = MessageBox.Show("Wollen Sie die Zutat wirklich löschen?", "Löschen", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
-            {
-                JsonUtils.DeleteJson<Zutat>(FullPath, oldName);
-
-                // Überprüfen, ob das aktuelle Fenster und das Besitzerfenster nicht null sind
+            try { UpdateList(); }
+            catch {
                 Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-                if (currentWindow != null)
-                {
-                   Messenger.Default.Send(new UpdateStateMessenger(false));
-                    currentWindow.Close();
-                }
+                currentWindow.Close();
             }
         }
-       
+
+        
+
+        private void EditData()
+        {
+            EditZutatWindow showWindow = new EditZutatWindow();
+            showWindow.Owner = Application.Current.Windows.OfType<ShowZutatWindow>().FirstOrDefault();
+            Messenger.Default.Send(new UpdateZutatMessage(EditZutat.Name));
+            showWindow.Closed += ShowWindow_Closed;
+
+
+            showWindow.ShowDialog();
+        }
+
 
 
 
@@ -119,20 +119,7 @@ namespace RZM_MVVM_.ViewModell
             Messenger.Default.Unregister(this);
             base.Cleanup();
         }
-
-        private void UpdateZutat(string path, string name)
-        {
-            EditZutat.KategorieNamen = KategorieList.Split(',').ToList();
-            EditZutat.Allergene = AllergenList.Split(',').ToList();
-            
-            JsonUtils.UpdateJson<Zutat>(FullPath, name, EditZutat);
-            JsonUtils.SortJsonFileZutat(FullPath);
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            if (currentWindow != null)
-            {
-                currentWindow.Close();
-            }
-        }
+        
 
     }
 }
