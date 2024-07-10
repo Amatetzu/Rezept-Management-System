@@ -79,7 +79,8 @@ namespace RZM_MVVM_.ViewModell
             }
             else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
             {
-                showWindow = new ShowCategoryWindow();
+                showWindow = new ShowKategorieWindow();
+                Messenger.Default.Send(new UpdateKategorieMessage(SelectetItemGenericList));
                 
             }
             showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen

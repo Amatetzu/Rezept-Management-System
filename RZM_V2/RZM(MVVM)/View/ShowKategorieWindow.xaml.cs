@@ -12,20 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RZM_MVVM_.ViewModell;
-
 
 namespace RZM_MVVM_.View
 {
     /// <summary>
-    /// Interaktionslogik für ShowCategoryWindow.xaml
+    /// Interaktionslogik für ShowKategorieWindow.xaml
     /// </summary>
-    public partial class ShowCategoryWindow : Window
+    public partial class ShowKategorieWindow : Window
     {
-        public ShowCategoryWindow()
+        public ShowKategorieWindow()
         {
             InitializeComponent();
-            ShowCategoryWindowViewModel vm = new ShowCategoryWindowViewModel();
+            ShowKategorieWindowViewModel vm = new ShowKategorieWindowViewModel();
             DataContext = vm;
         }
     }

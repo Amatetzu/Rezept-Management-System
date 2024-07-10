@@ -27,13 +27,13 @@ namespace RZM_MVVM_.MVVM
             NewZutat = newZutat;
         }
     }
-    public class UpdateStateMessenger : MessageBase
+    public class UpdateKategorieMessage : MessageBase
     {
-        public bool Delete { get; private set; }
+        public string NewKategorie { get; private set; }
 
-        public UpdateStateMessenger(bool delete)
+        public UpdateKategorieMessage(string newKategorie)
         {
-            Delete = delete;
+            NewKategorie = newKategorie;
         }
     }
 }

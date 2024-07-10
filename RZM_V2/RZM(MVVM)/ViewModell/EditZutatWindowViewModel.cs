@@ -85,7 +85,6 @@ namespace RZM_MVVM_.ViewModell
                 Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
                 if (currentWindow != null)
                 {
-                   Messenger.Default.Send(new UpdateStateMessenger(false));
                     currentWindow.Close();
                 }
             }
