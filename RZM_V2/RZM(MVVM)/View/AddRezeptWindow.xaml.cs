@@ -26,5 +26,13 @@ namespace RZM_MVVM_.View
             AddRezeptWindowViewModel vm = new AddRezeptWindowViewModel();
             this.DataContext = vm;
         }
+        private void ListViewItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var viewModel = DataContext as AddRezeptWindowViewModel;
+            if (viewModel != null && viewModel.ItemClickCommand.CanExecute(null))
+            {
+                viewModel.ItemClickCommand.Execute(null);
+            }
+        }
     }
 }
