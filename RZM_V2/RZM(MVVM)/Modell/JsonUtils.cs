@@ -179,8 +179,8 @@ namespace RZM_MVVM_.Modell
             for (int i = 0; i < dataList.Count; i++)
             {
                 ZutatReferenz data = new ZutatReferenz();
-                data.Name = dataList[i].Split(' ')[0];
-                data.Menge = double.Parse(dataList[i].Split(' ')[1]);
+                data.Name = dataList[i].Split(';')[0];
+                data.Menge = double.Parse(dataList[i].Split(';')[1]);
                 resultList.Add(data);
             }
             return resultList;

@@ -50,6 +50,7 @@ namespace RZM_MVVM_.ViewModell
         public ICommand ShowCategorys => new RelayCommand(CategoryShow);
         public ICommand SchowRezepts => new RelayCommand(RezeptShow);
         public ICommand SchowIngredients => new RelayCommand(IngredientShow);
+        public ICommand AddCommand => new RelayCommand(AddNewData);
 
         public ObservableCollection<string> GenericList { get; set; }
 
@@ -59,29 +60,54 @@ namespace RZM_MVVM_.ViewModell
             UpdateList();
             ((MainWindow)Application.Current.MainWindow).ListDoubleClick += ListDoubleClickHandler;
             HeaderMain = "Rezepte";
+            Application.Current.MainWindow.Closed += (s, e) => Application.Current.Shutdown();
         }
+
+        private void AddNewData()
+        {
+           
+            switch (HeaderMain)
+            {
+                case "Rezepte":
+                   AddRezeptWindow showWindow = new AddRezeptWindow();
+                    showWindow.Closed += ShowWindow_Closed;
+                    showWindow.ShowDialog();
+                    break;
+                default:
+                    MessageBox.Show("kein TEst");
+                    break;
+
+              
+            }
+           
+        }
+
+        
 
         // Event-Handler für Doppelklick auf ein ListView-Item
         private void ListDoubleClickHandler(object sender, EventArgs e)
         {
+            var showWindow = new Window();
             if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
             {
-                ShowRezeptWindow showWindow = new ShowRezeptWindow();
-                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
+                showWindow = new ShowRezeptWindow();
                 Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
-                showWindow.ShowDialog();
+
             }
             else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
             {
-                //ShowIngredientWindow();
+                showWindow = new ShowZutatWindow();
+                Messenger.Default.Send(new UpdateZutatMessage(SelectetItemGenericList));
             }
             else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
             {
-                View.ShowCategoryWindow showWindow = new View.ShowCategoryWindow();
-                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
-                Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
-                showWindow.ShowDialog();
+                showWindow = new ShowKategorieWindow();
+                Messenger.Default.Send(new UpdateKategorieMessage(SelectetItemGenericList));
+                
             }
+            showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
+            
+            showWindow.ShowDialog();
         }
 
         private void ShowWindow_Closed(object sender, EventArgs e)
@@ -146,6 +172,10 @@ namespace RZM_MVVM_.ViewModell
                 {
                     OpenEditZutatWindow(SelectetItemGenericList);
                 }
+                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
+                {
+                    OpenEditKategorieWindow(SelectetItemGenericList);
+                }
 
             }
             else
@@ -165,12 +195,21 @@ namespace RZM_MVVM_.ViewModell
         }
         private void OpenEditZutatWindow(string selectItem)
         {
-           View.EditZutatWindow showWondow = new View.EditZutatWindow();
-            showWondow.Owner = Application.Current.MainWindow;
-            showWondow.Closed += ShowWindow_Closed;
-            Messenger.Default.Send(new UpdateZutatMessage(selectItem));
-            showWondow.ShowDialog();
+            View.EditZutatWindow showWindow = new View.EditZutatWindow();
+            showWindow.Owner = Application.Current.MainWindow; // Setzt das Hauptfenster als Eigentümer
+            showWindow.Closed += ShowWindow_Closed;
+            Messenger.Default.Send(new UpdateHeaderMessage(selectItem));
+            showWindow.ShowDialog();
         }
+        private void OpenEditKategorieWindow(string selectItem)
+        {
+            EditKategorieWidow showWindow = new View.EditKategorieWidow();
+            showWindow.Owner = Application.Current.MainWindow; // Setzt das Hauptfenster als Eigentümer
+            showWindow.Closed += ShowWindow_Closed;
+            Messenger.Default.Send(new UpdateKategorieMessage(selectItem));
+            showWindow.ShowDialog();
+        }
+
 
     }
 }

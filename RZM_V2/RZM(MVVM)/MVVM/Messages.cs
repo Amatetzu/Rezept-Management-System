@@ -27,4 +27,13 @@ namespace RZM_MVVM_.MVVM
             NewZutat = newZutat;
         }
     }
+    public class UpdateKategorieMessage : MessageBase
+    {
+        public string NewKategorie { get; private set; }
+
+        public UpdateKategorieMessage(string newKategorie)
+        {
+            NewKategorie = newKategorie;
+        }
+    }
 }
