@@ -106,7 +106,7 @@ namespace RZM_MVVM_.ViewModell
             rezept.Kategorien = Kategorien.Split(',').ToList();
             rezept.Allergene = Allergene.Split(',').ToList();
             JsonUtils.UpdateJson<Rezept>(FullPath, OldName, rezept);
-            JsonUtils.SortJsonFile(FullPath);
+            JsonUtils.SortJsonFileRezept(FullPath);
             Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             if (currentWindow != null)
             {

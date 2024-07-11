@@ -156,7 +156,7 @@ namespace RZM_MVVM_.Modell
             return JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path)).Where(x => x.GetType().GetProperty("Name").GetValue(x).ToString() == name).ToList();
         }
 
-        public static void UpdateJson<T>(string path, string name, T newData) where T : class
+        public static void UpdateJson<T>(string path, string name, T newData)
         {
            
             List<T> data = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path));
@@ -186,7 +186,7 @@ namespace RZM_MVVM_.Modell
             return resultList;
         }
 
-        public static void SortJsonFile (string path)
+        public static void SortJsonFileRezept (string path)
         {
 
         //sortiert die json datei nach dem namen
@@ -195,6 +195,13 @@ namespace RZM_MVVM_.Modell
             File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
         }
 
+        public static void SortJsonFileZutat(string path)
+        {
+            //sortiert die json datei nach dem namen
+            List<Zutat> data = JsonConvert.DeserializeObject<List<Zutat>>(File.ReadAllText(path));
+            data = data.OrderBy(x => x.Name).ToList();
+            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
+        }
     }
 
 }

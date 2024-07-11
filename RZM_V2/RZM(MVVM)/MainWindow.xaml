@@ -29,7 +29,7 @@
                         Margin="10"
                         HorizontalAlignment="Right"
                         behaviors:TextChangedBehavior.Command="{Binding SearchCommand}"/>
-            </Grid>
+            
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="Kategorie" Width="100" Height="30" Margin="10" Command="{Binding ShowCategorys}"/>
                     <Button Content="Rezepte" Width="100" Height="30" Margin="10" Command="{Binding SchowRezepts}"/>
