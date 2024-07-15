@@ -9,21 +9,20 @@
     <Grid>
         <StackPanel>
             <Label Content="Name"
-                Margin="5"
-                FontSize="20"/>
+                Margin="10" FontSize="20" FontWeight="Bold"/>
             <TextBox Text="{Binding ShowKategori.Name}"
-                    Margin="5"
-                    FontSize="20"/>
+                    Margin="5"   FontSize="20"/>
             <Label Content="Beschreibung"
-                Margin="5"
-                FontSize="20"/>
+                Margin="5" FontSize="20" FontWeight="Bold"/>
             <TextBox Text="{Binding ShowKategori.Beschreibung}"
                     Margin="5"
                     FontSize="20"/>
-            <Button Content="speichern"
-                 Command="{Binding StoraKategorie}" Margin="5"/>
-            <Button Content="löschen"
-                 Command="{Binding DeleteKategorie}" Margin="5"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="speichern"
+                 Command="{Binding StoraKategorie}" Margin="5" Width="100"/>
+                <Button Content="löschen"
+                 Command="{Binding DeleteKategorie}" Margin="5" Width="100"/>
+            </StackPanel>
 
         </StackPanel>
     </Grid>
