@@ -202,6 +202,13 @@ namespace RZM_MVVM_.Modell
             data = data.OrderBy(x => x.Name).ToList();
             File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
         }
+        public static void SortJsonFileKategorie(string path)
+        {
+            //sortiert die json datei nach dem namen
+            List<Kategorie> data = JsonConvert.DeserializeObject<List<Kategorie>>(File.ReadAllText(path));
+            data = data.OrderBy(x => x.Name).ToList();
+            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
+        }
     }
 
 }

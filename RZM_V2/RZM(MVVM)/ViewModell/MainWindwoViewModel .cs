@@ -73,6 +73,18 @@ namespace RZM_MVVM_.ViewModell
                     showWindow.Closed += ShowWindow_Closed;
                     showWindow.ShowDialog();
                     break;
+                case "Zutaten":
+                    AddZutatWindow showWindow1 = new AddZutatWindow();
+                    showWindow1.Closed += ShowWindow_Closed;
+                    showWindow1.ShowDialog();
+                    break;
+                
+                case "Kategorien":
+                    AddKategorieWindow showWindow2 = new AddKategorieWindow();
+                    showWindow2.Closed += ShowWindow_Closed;
+                    showWindow2.ShowDialog();
+                    break;
+                
                 default:
                     MessageBox.Show("kein TEst");
                     break;
@@ -158,7 +170,29 @@ namespace RZM_MVVM_.ViewModell
 
         //COmands Edit ADD Delet
         public ICommand EditCommand => new RelayCommand(OpenEditWindow);
+        public ICommand DeleteCommand => new RelayCommand(DeletEntry);
+        private void DeletEntry()
+        {
+            switch (HeaderMain)
+            {
+                case "Kategorien":
+                    JsonUtils.DeleteJson<Kategorie>(FullPath, SelectetItemGenericList);
+                    break;
+                case "Zutaten":
+                    JsonUtils.DeleteJson<Zutat>(FullPath, SelectetItemGenericList);
+                    break;
+                case "Rezepte":
+                    JsonUtils.DeleteJson<Rezept>(FullPath, SelectetItemGenericList);
+                    break;
 
+                default :
+                    MessageBox.Show("nichtsausgewählt");
+                    break;
+
+            }
+            
+            UpdateList();
+        }
         public void OpenEditWindow()
         {
             if (SelectetItemGenericList != null)

@@ -227,7 +227,7 @@ namespace RZM_MVVM_.ViewModell
         {
             if (ZutatenName != null && ZutatenMenge != null)
             {
-                ZutatenList.Add(ZutatenName + " " + ZutatenMenge);
+                ZutatenList.Add(ZutatenName + "; " + ZutatenMenge);
                 ZutatenName = "";
                 ZutatenMenge ="";
             }

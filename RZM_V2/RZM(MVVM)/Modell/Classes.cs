@@ -11,8 +11,8 @@ namespace RZM_MVVM_.Modell
     
     public class Zutat
     {
-        public string Name { get; set; } = "Unbekannt";
-        public string Einheit { get; set; } = "Stück";
+        public string Name { get; set; } 
+        public string Einheit { get; set; }
         public double Menge { get; set; } = 0.0;
         public List<string> Allergene { get; set; } = new List<string>();
         public double EnergieKcal { get; set; } = 0.0;
@@ -21,9 +21,9 @@ namespace RZM_MVVM_.Modell
 
     public class Rezept
     {
-        public string Name { get; set; } = "Unbekanntes Rezept";
+        public string Name { get; set; } 
         public List<ZutatReferenz> Zutaten { get; set; } = new List<ZutatReferenz>();
-        public string Zubereitung { get; set; } = "Keine Zubereitungsanweisung vorhanden";
+        public string Zubereitung { get; set; }
         public List<string> Kategorien { get; set; }
         public List<string> Allergene { get; set; } = new List<string>();
         public int Zeit { get; set; } = 0; // in Minuten
