@@ -8,20 +8,27 @@
         Title="ShowKategorieWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Label Content="Name"
+            <Grid>
+                <Label Content="Name"
                    Margin="5"
-                   FontSize="20"/>
+                   FontSize="20"
+                   FontWeight="Bold"/>
+                
+                <Button Content="Bearbeiten"
+                  Command="{Binding Editkategori}"  HorizontalAlignment="right" Width=" 100" Height="30" Margin="10" /> 
+            </Grid>
             <TextBlock Text="{Binding ShowKategori.Name}"
-                       Margin="5"
-                       FontSize="20"/>
+       Margin="5"
+       FontSize="20"
+       />
             <Label Content="Beschreibung"
                    Margin="5"
-                   FontSize="20"/>
+                   FontSize="20"
+                   FontWeight="Bold"/> 
             <TextBlock Text="{Binding ShowKategori.Beschreibung}"
                        Margin="5"
                        FontSize="20"/>
-            <Button Content="Bearbeiten"
-                    Command="{Binding Editkategori}"/>
+            
 
         </StackPanel>
     </Grid>
