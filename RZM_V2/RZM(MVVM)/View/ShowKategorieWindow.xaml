@@ -13,17 +13,18 @@
                    Margin="5"
                    FontSize="20"
                    FontWeight="Bold"/>
-                <TextBlock Text="{Binding ShowKategori.Name}"
-                       Margin="5"
-                       FontSize="20"
-                       />
+                
                 <Button Content="Bearbeiten"
                   Command="{Binding Editkategori}"  HorizontalAlignment="right" Width=" 100" Height="30" Margin="10" /> 
             </Grid>
+            <TextBlock Text="{Binding ShowKategori.Name}"
+       Margin="5"
+       FontSize="20"
+       />
             <Label Content="Beschreibung"
                    Margin="5"
                    FontSize="20"
-                   FontWeight="Bold"</> 
+                   FontWeight="Bold"/> 
             <TextBlock Text="{Binding ShowKategori.Beschreibung}"
                        Margin="5"
                        FontSize="20"/>
