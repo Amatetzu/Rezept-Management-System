@@ -11,21 +11,30 @@ namespace RZM_MVVM_.ViewModell
 {
     class AddKategorieWindowViewModel:ViewModelBase
         {
-            public string FullPath = JsonUtils.GetFullPath(ConstValues.KategorienJsonPath);
+        
+            
+        public string FullPath = JsonUtils.GetFullPath(ConstValues.KategorienJsonPath);
             private Kategorie _showKategorie;
             public Kategorie ShowKategori { get { return _showKategorie; } set { Set(ref _showKategorie, value); } }
             public ICommand StoraKategorie => new RelayCommand(storaKategorie);
             private void storaKategorie()
             {
-            JsonUtils.WriteJson(FullPath, ShowKategori);
-            DeleteData();
-            JsonUtils.SortJsonFileKategorie(FullPath);
+            if (ShowKategori != null)
+            {
+                JsonUtils.WriteJson(FullPath, ShowKategori);
+                DeleteData();
+                JsonUtils.SortJsonFileKategorie(FullPath);
+            }
+            else
+            {MessageBox.Show("Bitte Geben sie Auch was ein");}
             }
 
             public ICommand DeleteKategorie => new RelayCommand(DeleteData);
             private void DeleteData()
             {
+            
             ShowKategori = new Kategorie();
+            
             }
             public AddKategorieWindowViewModel()
             {

@@ -111,7 +111,7 @@ namespace RZM_MVVM_.Modell
 
         
 
-        public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter) //funktioniert noch nicht wirklich (vielleicht sind auch die daten falsch)
+        public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter) 
         {
             List<string> resultList = new List<string>();
 

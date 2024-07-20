@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RZM_MVVM_.View"
+        xmlns:userControll="clr-namespace:RZM_MVVM_.UserControlls"
         mc:Ignorable="d"
         Title="AddKategorieWindow" Height="450" Width="800">
     <Grid>
@@ -11,16 +12,16 @@
             <Label Content="Name"
             Margin="5"
             FontSize="20"/>
-            <TextBox Text="{Binding ShowKategori.Name}"
-                Margin="5"
-                FontSize="20"/>
+            <userControll:InputFeld x:Name="kategorieName"
+                                    Text="{Binding ShowKategori.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Kategorie Name"/>
             <Label Content="Beschreibung"
             Margin="5"
             FontSize="20"/>
-            <TextBox Text="{Binding ShowKategori.Beschreibung}"
-                Margin="5"
-                FontSize="20"/>
-            <Button Content="speichern"
+            <userControll:InputFeld x:Name="beschreibungText"
+                                    Text="{Binding ShowKategori.Beschreibung,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Beschreibung"/>
+                <Button Content="speichern"
              Command="{Binding StoraKategorie}" Margin="5"/>
             <Button Content="löschen"
              Command="{Binding DeleteKategorie}" Margin="5"/>
