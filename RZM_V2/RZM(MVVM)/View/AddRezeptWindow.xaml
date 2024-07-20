@@ -124,7 +124,9 @@
             <TextBlock Text="Zubereitung"
                FontSize="20" FontWeight="Bold" Margin="10"/>
             <TextBox Text="{Binding NewRezept.Zubereitung}"
-             FontSize="20" Margin="10"/>
+                     FontSize="20" Margin="10"
+                     Height="auto"
+                     TextWrapping="wrap"/>
             <TextBlock Text="Kategorien"
                    FontSize="20" FontWeight="Bold" Margin="10"/>
             <TextBox Text="{Binding NewKategorien}"

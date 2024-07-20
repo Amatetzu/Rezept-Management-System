@@ -7,10 +7,11 @@
         xmlns:behaviors="clr-namespace:RZM_MVVM_.Behaviors"
         xmlns:local="clr-namespace:RZM_MVVM_.View"
         mc:Ignorable="d"
-        Title="EditRezeptWindow" Height="550" Width="800">
+        Title="EditRezeptWindow" Height="auto" Width="800"
+        >
    
     
-    <Grid>
+    <Grid >
         <StackPanel>
             <TextBlock Text="Rezeptname"
                    FontSize="20" FontWeight="Bold" Margin="10"/>
@@ -126,11 +127,14 @@
             <TextBlock Text="Zubereitung"
                    FontSize="20" FontWeight="Bold" Margin="10"/>
             <TextBox Text="{Binding RezeptZubereitung}"
-                 FontSize="20" Margin="10"/>
+                 FontSize="20" Margin="10"
+                     Height="auto"
+                    TextWrapping="wrap"/>
             <TextBlock Text="Kategorien"
                        FontSize="20" FontWeight="Bold" Margin="10"/>
             <TextBox Text="{Binding Kategorien}"
-                 FontSize="20" Margin="10"/>
+                 FontSize="20" Margin="10"
+                     />
             <TextBlock Text="Allergene"
                           FontSize="20" FontWeight="Bold" Margin="10"/>
             <TextBox Text="{Binding Allergene}" FontSize="20" Margin="10"/>
