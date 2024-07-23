@@ -111,7 +111,7 @@ namespace RZM_MVVM_.Modell
 
         
 
-        public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter) //funktioniert noch nicht wirklich (vielleicht sind auch die daten falsch)
+        public static List<string> ExtractStringListFromJsonCtaegory(string path, string filter) 
         {
             List<string> resultList = new List<string>();
 
@@ -199,6 +199,13 @@ namespace RZM_MVVM_.Modell
         {
             //sortiert die json datei nach dem namen
             List<Zutat> data = JsonConvert.DeserializeObject<List<Zutat>>(File.ReadAllText(path));
+            data = data.OrderBy(x => x.Name).ToList();
+            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
+        }
+        public static void SortJsonFileKategorie(string path)
+        {
+            //sortiert die json datei nach dem namen
+            List<Kategorie> data = JsonConvert.DeserializeObject<List<Kategorie>>(File.ReadAllText(path));
             data = data.OrderBy(x => x.Name).ToList();
             File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.Indented));
         }
