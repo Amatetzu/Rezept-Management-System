@@ -99,18 +99,15 @@ namespace RZM_MVVM_.ViewModell
             {
                 MessageBox.Show("No recipe found with the given name.");
             }
-            for (int i = 0; i < ShowRezept.Zutaten.Count; i++)
-            {
-                ShowRezeptZutaten += ShowRezept.Zutaten[i].Name + " " + ShowRezept.Zutaten[i].Menge + "; " ;
-            }
-            for (int i = 0; i < ShowRezept.Kategorien.Count; i++)
-            {
-                ShowRezeptKategorien += ShowRezept.Kategorien[i] + "; ";
-            }
-            for (int i = 0; i < ShowRezept.Allergene.Count; i++)
-            {
-                ShowRezeptAllergene += ShowRezept.Allergene[i] + "; ";
-            }
+            
+            ShowRezeptZutaten = String.Join("; ", ShowRezept.Zutaten.Select(z => z.Name + " " + z.Menge));
+
+           
+            ShowRezeptKategorien = String.Join("; ", ShowRezept.Kategorien);
+
+           
+            ShowRezeptAllergene = String.Join("; ", ShowRezept.Allergene);
+
         }
 
         public override void Cleanup()
