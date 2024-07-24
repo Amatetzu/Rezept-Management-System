@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RZM_MVVM_.View"
         xmlns:userControll="clr-namespace:RZM_MVVM_.UserControlls"
         mc:Ignorable="d"
-        Title="EditZutatWindow" Height="450" Width="800">
+        Title="EditZutatWindow" Height="550" Width="800">
     <Grid>
         <StackPanel>
             <Label Content="Zutat" 
