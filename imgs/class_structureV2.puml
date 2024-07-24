@@ -1,0 +1,122 @@
+@startuml
+
+!define RECTANGLE class
+!define NOTE note
+
+' Define classes and messages
+RECTANGLE MainWindowViewModel {
+    + ICommand SearchCommand
+    + ICommand ShowCategorys
+    + ICommand ShowRezepts
+    + ICommand ShowIngredients
+    + ICommand AddCommand
+    + ICommand OpenEditCommand
+    + ICommand AddNewData()
+    + ICommand DeleteEntry()
+}
+
+RECTANGLE ShowRezeptWindow {
+    + string SelectedItem
+}
+
+RECTANGLE ShowZutatWindow {
+    + string SelectedItem
+}
+
+RECTANGLE ShowKategorieWindow {
+    + string SelectedItem
+}
+
+RECTANGLE EditRezeptWindow {
+    + string SelectedItem
+}
+
+RECTANGLE EditZutatWindow {
+    + string SelectedItem
+}
+
+RECTANGLE EditKategorieWindow {
+    + string SelectedItem
+}
+
+RECTANGLE AddRezeptWindow {
+    + string NewItem
+}
+
+RECTANGLE AddZutatWindow {
+    + string NewItem
+}
+
+RECTANGLE AddKategorieWindow {
+    + string NewItem
+}
+
+RECTANGLE JsonUtils {
+    + void WriteJson(string filePath, object dataToAppend)
+    + List<string> ExtractStringListFromJson(string path, string attributeName = "name")
+    + void UpdateJson<T>(string path, string name, T newData)
+    + void DeleteJson<T>(string path, string name)
+}
+
+' Define messages
+RECTANGLE UpdateHeaderMessage {
+    + string NewHeader
+}
+
+RECTANGLE UpdateZutatMessage {
+    + string NewZutat
+}
+
+RECTANGLE UpdateKategorieMessage {
+    + string NewKategorie
+}
+
+' Define relationships
+MainWindowViewModel --> JsonUtils : Uses
+ShowRezeptWindow --> JsonUtils : Uses
+ShowZutatWindow --> JsonUtils : Uses
+ShowKategorieWindow --> JsonUtils : Uses
+EditRezeptWindow --> JsonUtils : Uses
+EditZutatWindow --> JsonUtils : Uses
+EditKategorieWindow --> JsonUtils : Uses
+AddRezeptWindow --> JsonUtils : Uses
+AddZutatWindow --> JsonUtils : Uses
+AddKategorieWindow --> JsonUtils : Uses
+
+' Messages and interactions
+MainWindowViewModel -[dashed]-> UpdateHeaderMessage : Sends information
+UpdateHeaderMessage -[dashed]-> ShowRezeptWindow : Provides info
+UpdateHeaderMessage -[dashed]-> EditRezeptWindow : Provides info
+
+MainWindowViewModel -[dashed]-> UpdateZutatMessage : Sends information
+UpdateZutatMessage -[dashed]-> ShowZutatWindow : Provides info
+UpdateZutatMessage -[dashed]-> EditZutatWindow : Provides info
+
+MainWindowViewModel -[dashed]-> UpdateKategorieMessage : Sends information
+UpdateKategorieMessage -[dashed]-> ShowKategorieWindow : Provides info
+UpdateKategorieMessage -[dashed]-> EditKategorieWindow : Provides info
+
+ShowRezeptWindow -[dashed]-> UpdateHeaderMessage : Sends information
+ShowZutatWindow -[dashed]-> UpdateZutatMessage : Sends information
+ShowKategorieWindow -[dashed]-> UpdateKategorieMessage : Sends information
+
+' Window opening interactions
+MainWindowViewModel --> ShowRezeptWindow : Opens
+MainWindowViewModel --> ShowZutatWindow : Opens
+MainWindowViewModel --> ShowKategorieWindow : Opens
+
+MainWindowViewModel --> EditRezeptWindow : Opens
+MainWindowViewModel --> EditZutatWindow : Opens
+MainWindowViewModel --> EditKategorieWindow : Opens
+
+MainWindowViewModel --> AddKategorieWindow : Opens
+MainWindowViewModel --> AddZutatWindow : Opens
+MainWindowViewModel --> AddRezeptWindow : Opens
+
+
+' Show to Edit window interactions
+ShowRezeptWindow --> EditRezeptWindow : Opens
+ShowZutatWindow --> EditZutatWindow : Opens
+ShowKategorieWindow --> EditKategorieWindow : Opens
+
+@enduml
