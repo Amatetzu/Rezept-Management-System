@@ -42,6 +42,13 @@ namespace RZM_MVVM_.ViewModell
             }
         }
 
+        private string _energie;
+        public string Energie
+        {
+            get { return _energie; }
+            set { Set(ref _energie, value); }
+        }
+
         public ICommand EditZutatCommand => new RelayCommand(EditData);
 
         public ShowZutatWindowViewModel()
@@ -106,6 +113,7 @@ namespace RZM_MVVM_.ViewModell
             EditZutat = zutats[0];
             AllergenList = string.Join(", ", EditZutat.Allergene);
             KategorieList = string.Join(", ", EditZutat.KategorieNamen);
+            Energie = EditZutat.EnergieKcal.ToString() + " kcal";
         }
 
         public Zutat EditZutat
