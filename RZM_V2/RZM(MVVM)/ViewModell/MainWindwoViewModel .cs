@@ -100,26 +100,34 @@ namespace RZM_MVVM_.ViewModell
         private void ListDoubleClickHandler(object sender, EventArgs e)
         {
             var showWindow = new Window();
-            if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
+            if (SelectetItemGenericList == null)
             {
-                showWindow = new ShowRezeptWindow();
-                Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
+                MessageBox.Show("Nichtsausgewählt");
+                return;
+            }
+            else
+            {
+                if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
+                {
+                    showWindow = new ShowRezeptWindow();
+                    Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
 
+                }
+                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
+                {
+                    showWindow = new ShowZutatWindow();
+                    Messenger.Default.Send(new UpdateZutatMessage(SelectetItemGenericList));
+                }
+                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
+                {
+                    showWindow = new ShowKategorieWindow();
+                    Messenger.Default.Send(new UpdateKategorieMessage(SelectetItemGenericList));
+
+                }
+                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
+
+                showWindow.ShowDialog();
             }
-            else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
-            {
-                showWindow = new ShowZutatWindow();
-                Messenger.Default.Send(new UpdateZutatMessage(SelectetItemGenericList));
-            }
-            else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
-            {
-                showWindow = new ShowKategorieWindow();
-                Messenger.Default.Send(new UpdateKategorieMessage(SelectetItemGenericList));
-                
-            }
-            showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
-            
-            showWindow.ShowDialog();
         }
 
         private void ShowWindow_Closed(object sender, EventArgs e)
