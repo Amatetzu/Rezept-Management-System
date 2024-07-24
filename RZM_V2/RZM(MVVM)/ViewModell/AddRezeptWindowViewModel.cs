@@ -48,8 +48,14 @@ namespace RZM_MVVM_.ViewModell
         private string _zutatenName;
         public string ZutatenName
         {
-            get { return _zutatenName; }
-            set { Set(ref _zutatenName, value); }
+            get => _zutatenName;
+            set
+            {
+                if (Set(ref _zutatenName, value))
+                {
+                    SearchZutaten();
+                }
+            }
         }
 
         private string _zutatenMenge;
@@ -129,7 +135,6 @@ namespace RZM_MVVM_.ViewModell
         public ICommand ExpandButton => new RelayCommand(ExpandPopup);
         public ICommand DeleteZutat => new RelayCommand(DeleteZutatfromList);
         public ICommand AddZutat => new RelayCommand(AddZutatenToList);
-        public ICommand SearchZutatenCommand => new RelayCommand(SearchZutaten);
         public ICommand ItemClickCommand => new RelayCommand(OnItemClick);
         public ICommand EditZutat => new RelayCommand(EditZutaten);
 

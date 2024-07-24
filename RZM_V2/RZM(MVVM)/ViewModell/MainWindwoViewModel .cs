@@ -15,11 +15,17 @@ namespace RZM_MVVM_.ViewModell
         public string FullPath = System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath);
 
         private string _searchText;
-
         public string SearchText
         {
-            get { return _searchText; }
-            set { Set(ref _searchText, value); }
+            get => _searchText;
+            set
+            {
+                if (Set(ref _searchText, value))
+                {
+                    
+                    UpdateList();
+                }
+            }
         }
 
         private string _selectetItemGenericList;

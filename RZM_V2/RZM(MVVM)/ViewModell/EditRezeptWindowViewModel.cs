@@ -155,8 +155,14 @@ namespace RZM_MVVM_.ViewModell
         private string _zutatenName;
         public string ZutatenName
         {
-            get { return _zutatenName; }
-            set { Set(ref _zutatenName, value); }
+            get => _zutatenName;
+            set
+            {
+                if (Set(ref _zutatenName, value))
+                {
+                    SearchZutaten();
+                }
+            }
         }
         private string _zutatenMenge;
         public string ZutatenMenge
