@@ -3,25 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:userControll="clr-namespace:RZM_MVVM_.UserControlls"
         xmlns:local="clr-namespace:RZM_MVVM_.View"
         mc:Ignorable="d"
         Title="AddZutatWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <Label Content="Zutat" />
-            <TextBox Text="{Binding EditZutat.Name}" />
-            <Label Content="Menge" />
-            <TextBox Text="{Binding EditZutat.Menge}" />
-            <Label Content="Einheit" />
-            <TextBox Text="{Binding EditZutat.Einheit}" />
-            <Label Content="Allergene"/>
-            <TextBox Text="{Binding AllergenList, UpdateSourceTrigger=PropertyChanged}" />
-            <Label Content="Kategorie"/>
-            <TextBox Text="{Binding KategorieList, UpdateSourceTrigger=PropertyChanged}" />
-            <Label Content="Energie"/>
-            <TextBox Text="{Binding EditZutat.EnergieKcal}" />
-            <Button Content="Speichern" Command="{Binding UpdateZutatCommand}" Margin=" 5" />
-            <Button Content="Löschen" Command="{Binding DeleteZutatCommand}" Margin="5"/>
+            <Label Content="Zutat" 
+                   Margin=" 2" FontSize="15" FontWeight="Bold"/>
+            <userControll:InputFeld x:Name="zutatName" 
+                                    Text="{Binding EditZutat.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Placeholder="Zutat Name"/>
+            <Label Content="Menge" 
+                    Margin=" 2" FontSize="15" FontWeight="Bold"/>
+            <userControll:InputFeld x:Name="menge"
+                                    Text="{Binding EditZutat.Menge, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Placeholder="Menge der Zutat"/>
+            <Label Content="Einheit"
+                    Margin=" 2" FontSize="15" FontWeight="Bold"/>
+            <userControll:InputFeld x:Name="einheit"
+                                    Text="{Binding EditZutat.Einheit, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Placeholder="Einheit"/>
+            <Label Content="Allergene"
+                    Margin=" 2" FontSize="15" FontWeight="Bold"/>
+            <userControll:InputFeld x:Name="allergene"
+                                    Text="{Binding AllergenList, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Placeholder="Allergene"/>
+            <Label Content="Kategorie"
+                    Margin=" 2" FontSize="15" FontWeight="Bold"/>
+            <userControll:InputFeld x:Name="kategorie"
+                                    Text="{Binding KategorieList, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Placeholder="Kategorie"/>
+            <Label Content="Energie"
+                    Margin=" 2" FontSize="15" FontWeight="Bold"/>
+            <userControll:InputFeld x:Name="energie"
+                                    Text="{Binding EditZutat.EnergieKcal, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Placeholder="Energie"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="speichern" Command="{Binding UpdateZutatCommand}" Margin=" 15"  Width="100" Height="20"/>
+                <Button Content="löschen" Command="{Binding DeleteZutatCommand}" Margin="15" Width="100" Height="20"/>
+            </StackPanel>
+           
         </StackPanel>
     </Grid>
 </Window>

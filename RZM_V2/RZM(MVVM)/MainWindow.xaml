@@ -19,9 +19,9 @@
                 <Button Content="Add" Width="100" Height="30" Margin="10" Command="{Binding AddCommand}"/>
                 <Button Content="Edit" Width="100" Height="30" Margin="10" Command="{Binding EditCommand}"/>
                 <Button Content="Delete" Width="100" Height="30" Margin="10" Command="{Binding DeleteCommand}"/>
-                
-            </StackPanel>
-            <TextBox x:Name="searchBar"
+
+
+                <TextBox x:Name="searchBar"
 
                         Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         Width="200"
@@ -29,8 +29,8 @@
                         Margin="10"
                         HorizontalAlignment="Right"
                         behaviors:TextChangedBehavior.Command="{Binding SearchCommand}"/>
-            
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="Kategorie" Width="100" Height="30" Margin="10" Command="{Binding ShowCategorys}"/>
                     <Button Content="Rezepte" Width="100" Height="30" Margin="10" Command="{Binding SchowRezepts}"/>
                     <Button Content="Zutaten" Width="100" Height="30" Margin="10" Command="{Binding SchowIngredients}"/>

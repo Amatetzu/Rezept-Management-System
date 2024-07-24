@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RZM_MVVM_.View"
+        xmlns:userControll="clr-namespace:RZM_MVVM_.UserControlls"
         mc:Ignorable="d"
         Title="ShowRezeptWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
             <Grid>
-                <TextBlock Text="Bolongnese"
+                <TextBlock Text="{Binding ShowRezept.Name}"
                        FontSize="30" FontWeight="Bold" Margin="10"
                        HorizontalAlignment="Center"/>
                 <Button Content="bearbeiten"
@@ -23,16 +24,16 @@
 
 
             <TextBlock Text="Benötigte Zutaten:"
-                       FontSize="20" FontWeight="Bold" Margin="10"
+                       FontSize="15" FontWeight="Bold" Margin="5"
                        HorizontalAlignment="Left"/>
-            <TextBlock Text="Lorem Ipsum"
-                       FontSize="20"  Margin="10"
-                       HorizontalAlignment="Center"/>   
+            <userControll:InputFeld x:Name="zutatName"
+                                    Text="{Binding ShowRezept.Zutaten, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Zutaten" />
             <TextBlock Text="Zubereitung:"
-                          FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBlock Text="Lorem Ipsum"
-                       FontSize="20"  Margin="10"
-                          HorizontalAlignment="Center"/>
+                          FontSize="15" FontWeight="Bold" Margin="5"/>
+            <userControll:InputFeld x:Name="zubereitungText"
+                                    Text="{Binding ShowRezept.Zubereitung, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Zubereitung" />
             
 
 

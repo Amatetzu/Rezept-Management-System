@@ -11,11 +11,12 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="Rezeptname"
-               FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBox Text="{Binding NewRezept.Name}"
-             FontSize="20"  Margin="10"/>
+               FontSize="15" FontWeight="Bold" Margin="5"/>
+            <userControlls:InputFeld x:Name="Rezeptname"
+                                    Text="{Binding NewRezept.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Rezeptname"/>
             <TextBlock Text="Zutaten"
-               FontSize="20" FontWeight="Bold" Margin="10"/>
+               FontSize="15" FontWeight="Bold" Margin="5"/>
             <Grid>
                 <Button x:Name="expandButton"
                      Content="&#x25BC;"  
@@ -23,7 +24,7 @@
                      HorizontalAlignment="Left"
                      VerticalAlignment="Center"
                      Grid.Column="1"
-                     Margin="10"
+                     Margin="5"
                      Command="{Binding ExpandButton }"/>
 
                 <Popup x:Name="expandpopup"
@@ -122,26 +123,29 @@
                 </Popup>
             </Grid>
             <TextBlock Text="Zubereitung"
-               FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBox Text="{Binding NewRezept.Zubereitung}"
-                     FontSize="20" Margin="10"
-                     Height="auto"
-                     TextWrapping="wrap"/>
+               FontSize="15" FontWeight="Bold" Margin="5"/>
+            <userControlls:InputFeld x:Name="Zubereitung"
+                                    Text="{Binding NewRezept.Zubereitung, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Zubereitung"/>
+                               
             <TextBlock Text="Kategorien"
-                   FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBox Text="{Binding NewKategorien}"
-             FontSize="20" Margin="10"/>
+                   FontSize="15" FontWeight="Bold" Margin="5"/>
+            <userControlls:InputFeld x:Name="Kategorien"
+                                    Text="{Binding NewKategorien, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Kategorien"/>
             <TextBlock Text="Allergene"
-                      FontSize="20" FontWeight="Bold" Margin="10"/>
-            <TextBox Text="{Binding NewAllergene}" FontSize="20" Margin="10"/>
+                      FontSize="15" FontWeight="Bold" Margin="5"/>
+            <userControlls:InputFeld x:Name="Allergene"
+                                    Text="{Binding NewAllergene, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Placeholder="Allergene"/>
             <StackPanel Orientation="Horizontal">
                 <Button Content="Speichern"
                     Command="{Binding SaveCommand}"
-                    Margin="10"
+                    Margin="15"
                     Width="100"/>
                 <Button Content="Clear"
                     Command="{Binding ClearCommand}"
-                    Margin="10"
+                    Margin="15"
                     Width="100"/>
             </StackPanel>
 

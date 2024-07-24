@@ -10,22 +10,28 @@
     <Grid>
         <StackPanel>
             <Label Content="Name"
-            Margin="5"
-            FontSize="20"/>
+            Margin="10"
+            FontSize="25"
+            FontWeight="Bold"
+            HorizontalAlignment="Center"/>
             <userControll:InputFeld x:Name="kategorieName"
                                     Text="{Binding ShowKategori.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     Placeholder="Kategorie Name"/>
             <Label Content="Beschreibung"
-            Margin="5"
-            FontSize="20"/>
+            Margin="10"
+            FontSize="25"
+            FontWeight="Bold"
+            HorizontalAlignment="Center"/>
             <userControll:InputFeld x:Name="beschreibungText"
                                     Text="{Binding ShowKategori.Beschreibung,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     Placeholder="Beschreibung"/>
-                <Button Content="speichern"
-             Command="{Binding StoraKategorie}" Margin="5"/>
-            <Button Content="löschen"
-             Command="{Binding DeleteKategorie}" Margin="5"/>
 
+            <StackPanel Orientation="Horizontal">
+                <Button Content="speichern"
+             Command="{Binding StoraKategorie}" Margin="15" Width="100"/>
+                <Button Content="löschen"
+             Command="{Binding DeleteKategorie}" Margin="15" Width="100"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
