@@ -12,7 +12,9 @@
             <Grid>
                 <TextBlock Text="{Binding EditZutat.Name}"
                     FontSize="30" FontWeight="Bold" Margin="10"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center"
+                    TextWrapping="Wrap"
+                    Width="300"/>
                 
             <Button Content="Bearbeiten" Command="{Binding EditZutatCommand}" 
                     Margin=" 5" 
