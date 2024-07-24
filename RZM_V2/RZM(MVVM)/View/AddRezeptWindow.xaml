@@ -47,7 +47,7 @@
                                       Margin="5"
                                       HorizontalAlignment="Center"
                                       Text="{Binding ZutatenName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      behaviors:TextChangedBehavior.Command="{Binding SearchZutatenCommand}"/>
+                                      />
                                 <Popup x:Name="searchedZutaten"
                                     PlacementTarget="{Binding ElementName=ingInput}"
                                     IsOpen="{Binding IsSearchPopupOpen}">
