@@ -170,5 +170,17 @@
       "Gluten"
     ],
     "Zeit": 30
+  },
+  {
+    "Name": "test",
+    "Zutaten": [],
+    "Zubereitung": "t",
+    "Kategorien": [
+      "t"
+    ],
+    "Allergene": [
+      "t"
+    ],
+    "Zeit": 0
   }
 ]
