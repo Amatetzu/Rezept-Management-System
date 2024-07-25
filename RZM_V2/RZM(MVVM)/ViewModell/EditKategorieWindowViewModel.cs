@@ -10,38 +10,70 @@ using System.Windows;
 using System.Windows.Input;
 using RZM_MVVM_.View;
 using RZM_MVVM_.ViewModell;
-using RZM_MVVM_.Modell;
-using System.Threading.Channels;
 
 namespace RZM_MVVM_.ViewModell
 {
+    /// <summary>
+    /// ViewModel für das Bearbeiten von Kategorien.
+    /// </summary>
     class EditKategorieWindowViewModel : ViewModelBase
     {
+        // Pfad zur JSON-Datei für Kategorien
         public string FullPath = Path.GetFullPath(ConstValues.KategorienJsonPath);
+
+        // Die aktuell angezeigte Kategorie
         private Kategorie _showKategorie;
-        public Kategorie ShowKategori { get { return _showKategorie; } set { Set(ref _showKategorie, value); } }
-        public string oldName { get; set; }
-        public List<Kategorie> kategories { get; set; }
-        public ICommand StoraKategorie => new RelayCommand(storaKategorie);
-        private void storaKategorie()
+        public Kategorie ShowKategorie
         {
-            JsonUtils.UpdateJson<Kategorie>(FullPath,oldName,ShowKategori);
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            currentWindow.Close();
+            get { return _showKategorie; }
+            set { Set(ref _showKategorie, value); }
         }
 
-        public ICommand DeleteKategorie => new RelayCommand(DeleteData);
-        private void DeleteData()
-        {
-            JsonUtils.DeleteJson<Kategorie>(FullPath, oldName);
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            currentWindow.Close();
-        }
+        // Der Name der Kategorie vor der Bearbeitung
+        public string OldName { get; set; }
+
+        // Liste der Kategorien (vermutlich für interne Verwendung)
+        public List<Kategorie> Kategorien { get; set; }
+
+        // Command zum Speichern der bearbeiteten Kategorie
+        public ICommand SaveKategorieCommand => new RelayCommand(SaveKategorie);
+
+        // Command zum Löschen der Kategorie
+        public ICommand DeleteKategorieCommand => new RelayCommand(DeleteKategorie);
+
+        // Konstruktor
         public EditKategorieWindowViewModel()
         {
+            // Registrierung des Messengers zur Verarbeitung von Update-Nachrichten
             Messenger.Default.Register<UpdateKategorieMessage>(this, HandleUpdateKategorieMessage);
-            ShowKategori = new Kategorie();
+
+            // Initialisierung der Kategorie
+            ShowKategorie = new Kategorie();
         }
+
+        // Methode zum Speichern der Kategorie
+        private void SaveKategorie()
+        {
+            // Aktualisiere die Kategorie in der JSON-Datei
+            JsonUtils.UpdateJson<Kategorie>(FullPath, OldName, ShowKategorie);
+
+            // Schließe das aktuelle Fenster
+            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            currentWindow?.Close();
+        }
+
+        // Methode zum Löschen der Kategorie
+        private void DeleteKategorie()
+        {
+            // Lösche die Kategorie aus der JSON-Datei
+            JsonUtils.DeleteJson<Kategorie>(FullPath, OldName);
+
+            // Schließe das aktuelle Fenster
+            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            currentWindow?.Close();
+        }
+
+        // Methode zur Verarbeitung der Update-Nachricht für eine Kategorie
         private void HandleUpdateKategorieMessage(UpdateKategorieMessage message)
         {
             if (message == null || string.IsNullOrEmpty(message.NewKategorie))
@@ -49,14 +81,26 @@ namespace RZM_MVVM_.ViewModell
                 MessageBox.Show("Fehler: Ungültige Nachricht erhalten.");
                 return;
             }
-            ShowKategori.Name = message.NewKategorie;
-            oldName = message.NewKategorie;
-            UpdateKategie();
+
+            // Setze den neuen Namen der Kategorie
+            ShowKategorie.Name = message.NewKategorie;
+            OldName = message.NewKategorie;
+
+            // Aktualisiere die Kategorie
+            UpdateKategorie();
         }
-        private void UpdateKategie()
+
+        // Methode zur Aktualisierung der Kategorie
+        private void UpdateKategorie()
         {
-            kategories = JsonUtils.GetOneFullData<Kategorie>(FullPath, oldName);
-            ShowKategori = kategories[0];
+            // Hole die vollständigen Daten für die Kategorie
+            Kategorien = JsonUtils.GetOneFullData<Kategorie>(FullPath, OldName);
+
+            // Setze die aktualisierte Kategorie
+            if (Kategorien.Any())
+            {
+                ShowKategorie = Kategorien[0];
+            }
         }
     }
 }

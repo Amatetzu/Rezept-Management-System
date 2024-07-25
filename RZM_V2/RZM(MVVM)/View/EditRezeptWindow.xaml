@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        xmlns:behaviors="clr-namespace:RZM_MVVM_.Behaviors"
         xmlns:local="clr-namespace:RZM_MVVM_.View"
         xmlns:userControll="clr-namespace:RZM_MVVM_.UserControlls"
         mc:Ignorable="d"
@@ -51,7 +50,7 @@
                                           Margin="5"
                                           HorizontalAlignment="Center"
                                           Text="{Binding ZutatenName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                          />
+                                          TextWrapping="Wrap"/>
                                 <Popup x:Name="searchedZutaten"
                                         PlacementTarget="{Binding ElementName=ingInput}"
                                         IsOpen="{Binding IsSearchPopupOpen}">

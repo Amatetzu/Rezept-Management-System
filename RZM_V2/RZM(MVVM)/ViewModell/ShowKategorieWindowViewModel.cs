@@ -10,37 +10,53 @@ using System.Windows;
 using System.Windows.Input;
 using RZM_MVVM_.View;
 using RZM_MVVM_.ViewModell;
-using RZM_MVVM_.Modell;
-using System.Threading.Channels;
 
 namespace RZM_MVVM_.ViewModell
 {
     internal class ShowKategorieWindowViewModel : ViewModelBase
     {
+        // Pfad zur JSON-Datei für Kategorien
         public string FullPath = Path.GetFullPath(ConstValues.KategorienJsonPath);
+
+        // Kategorie-Objekt, das angezeigt wird
         private Kategorie _showKategorie;
-        public Kategorie ShowKategori { get { return _showKategorie; } set { Set(ref _showKategorie, value); } }
-        public string oldName { get; set; }
-        public List<Kategorie> kategories { get; set; }
-        public ICommand Editkategori => new RelayCommand(EditData);
-        private void EditData()
+        public Kategorie ShowKategorie
         {
-            EditKategorieWidow showWindow = new EditKategorieWidow();
-            showWindow.Owner = Application.Current.Windows.OfType<ShowZutatWindow>().FirstOrDefault();
-            Messenger.Default.Send(new UpdateKategorieMessage(oldName));
-            showWindow.Closed += ShowWindow_Closed;
-
-
-            showWindow.ShowDialog();
+            get { return _showKategorie; }
+            set { Set(ref _showKategorie, value); }
         }
 
+        // Alter Name der Kategorie (zum Vergleichen)
+        public string oldName { get; set; }
+
+        // Liste der Kategorien
+        public List<Kategorie> kategories { get; set; }
+
+        // Command zum Bearbeiten der Kategorie
+        public ICommand EditKategorieCommand => new RelayCommand(EditData);
 
         public ShowKategorieWindowViewModel()
         {
-               Messenger.Default.Register<UpdateKategorieMessage>(this, HandleUpdateKategorieMessage);
-                 ShowKategori = new Kategorie();
+            // Registrieren des Messengers zum Empfangen von Nachrichten
+            Messenger.Default.Register<UpdateKategorieMessage>(this, HandleUpdateKategorieMessage);
+            ShowKategorie = new Kategorie();
         }
 
+        // Methode zum Öffnen des Bearbeitungsfensters für Kategorien
+        private void EditData()
+        {
+            var showWindow = new EditKategorieWidow
+            {
+                Owner = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive) // Setzt das aktive Fenster als Eigentümer
+            };
+
+            // Senden einer Nachricht mit dem alten Namen der Kategorie
+            Messenger.Default.Send(new UpdateKategorieMessage(oldName));
+            showWindow.Closed += ShowWindow_Closed;
+            showWindow.ShowDialog();
+        }
+
+        // Handler für die Aktualisierung der Kategorie-Nachricht
         private void HandleUpdateKategorieMessage(UpdateKategorieMessage message)
         {
             if (message == null || string.IsNullOrEmpty(message.NewKategorie))
@@ -48,29 +64,42 @@ namespace RZM_MVVM_.ViewModell
                 MessageBox.Show("Fehler: Ungültige Nachricht erhalten.");
                 return;
             }
-            ShowKategori.Name = message.NewKategorie;
-            oldName = message.NewKategorie;
-            UpdateKategie();
 
+            // Setzt den neuen Namen der Kategorie
+            ShowKategorie.Name = message.NewKategorie;
+            oldName = message.NewKategorie;
+            UpdateKategorie();
         }
 
-        private void UpdateKategie()
+        // Aktualisiert die Kategorie-Daten
+        private void UpdateKategorie()
         {
             kategories = JsonUtils.GetOneFullData<Kategorie>(FullPath, oldName);
-            ShowKategori = kategories[0];
-         }
+            if (kategories != null && kategories.Count > 0)
+            {
+                ShowKategorie = kategories[0];
+            }
+            else
+            {
+                MessageBox.Show("Fehler: Kategorie konnte nicht geladen werden.");
+            }
+        }
 
-        private event EventHandler Closed;
-
+        // Event-Handler für das Schließen des Fensters
         private void ShowWindow_Closed(object sender, System.EventArgs e)
         {
-          
-            try { UpdateKategie(); 
+            try
+            {
+                UpdateKategorie();
             }
             catch
             {
-                Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-                currentWindow.Close();
+                // Schließt das aktuell aktive Fenster, wenn ein Fehler auftritt
+                var currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                if (currentWindow != null)
+                {
+                    currentWindow.Close();
+                }
             }
         }
     }

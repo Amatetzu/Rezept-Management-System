@@ -15,7 +15,7 @@
             FontWeight="Bold"
             HorizontalAlignment="Center"/>
             <userControll:InputFeld x:Name="kategorieName"
-                                    Text="{Binding ShowKategori.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Text="{Binding ShowKategorie.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     Placeholder="Kategorie Name"/>
             <Label Content="Beschreibung"
             Margin="10"
@@ -23,12 +23,12 @@
             FontWeight="Bold"
             HorizontalAlignment="Center"/>
             <userControll:InputFeld x:Name="beschreibungText"
-                                    Text="{Binding ShowKategori.Beschreibung,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Text="{Binding ShowKategorie.Beschreibung,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     Placeholder="Beschreibung"/>
 
             <StackPanel Orientation="Horizontal">
                 <Button Content="speichern"
-             Command="{Binding StoraKategorie}" Margin="15" Width="100"/>
+             Command="{Binding StoreKategorie}" Margin="15" Width="100"/>
                 <Button Content="löschen"
              Command="{Binding DeleteKategorie}" Margin="15" Width="100"/>
             </StackPanel>

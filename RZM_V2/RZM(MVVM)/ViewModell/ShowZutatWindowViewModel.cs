@@ -7,6 +7,7 @@ using RZM_MVVM_.View;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
@@ -14,31 +15,49 @@ namespace RZM_MVVM_.ViewModell
 {
     internal class ShowZutatWindowViewModel : ViewModelBase
     {
-        private string oldName { get; set; }
-        private Zutat _editZutat;
+        // Pfad zur JSON-Datei für Zutaten
         public string FullPath = Path.GetFullPath(ConstValues.ZutatenJsonPath);
+
+        // Das aktuell bearbeitete Zutat-Objekt
+        private Zutat _editZutat;
+        public Zutat EditZutat
+        {
+            get { return _editZutat; }
+            set { Set(ref _editZutat, value); }
+        }
+
+        // Der Name der Zutat, die bearbeitet wird
+        private string oldName;
+
+        // Liste der Zutaten
         public List<Zutat> zutats { get; set; }
 
+        // Bindable properties für Allergene und Kategorien
         private string _allergenList;
-        private string _kategorieList;
-
         public string AllergenList
         {
             get { return _allergenList; }
             set
             {
                 Set(ref _allergenList, value);
-                EditZutat.Allergene = value.Split(',').Select(s => s.Trim()).ToList();
+                if (EditZutat != null)
+                {
+                    EditZutat.Allergene = value.Split(',').Select(s => s.Trim()).ToList();
+                }
             }
         }
 
+        private string _kategorieList;
         public string KategorieList
         {
             get { return _kategorieList; }
             set
             {
                 Set(ref _kategorieList, value);
-                EditZutat.KategorieNamen = value.Split(',').Select(s => s.Trim()).ToList();
+                if (EditZutat != null)
+                {
+                    EditZutat.KategorieNamen = value.Split(',').Select(s => s.Trim()).ToList();
+                }
             }
         }
 
@@ -49,14 +68,17 @@ namespace RZM_MVVM_.ViewModell
             set { Set(ref _energie, value); }
         }
 
+        // Command zum Bearbeiten der Zutat
         public ICommand EditZutatCommand => new RelayCommand(EditData);
 
+        // Konstruktor
         public ShowZutatWindowViewModel()
         {
             Messenger.Default.Register<UpdateZutatMessage>(this, HandleUpdateZutatMessage);
             EditZutat = new Zutat();
         }
 
+        // Handler für die Update-Zutat-Nachricht
         private void HandleUpdateZutatMessage(UpdateZutatMessage message)
         {
             if (message == null || string.IsNullOrEmpty(message.NewZutat))
@@ -75,59 +97,55 @@ namespace RZM_MVVM_.ViewModell
             oldName = EditZutat.Name;
             UpdateList();
         }
-        private event EventHandler Closed;
-        private void ShowWindow_Closed(object sender, System.EventArgs e)
-        {
-            try { UpdateList(); }
-            catch {
-                Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-                currentWindow.Close();
-            }
-        }
 
-        
-
+        // Methode zum Öffnen des Bearbeitungsfensters
         private void EditData()
         {
-            EditZutatWindow showWindow = new EditZutatWindow();
-            showWindow.Owner = Application.Current.Windows.OfType<ShowZutatWindow>().FirstOrDefault();
+            var editZutatWindow = new EditZutatWindow
+            {
+                Owner = Application.Current.Windows.OfType<ShowZutatWindow>().FirstOrDefault()
+            };
+
             Messenger.Default.Send(new UpdateZutatMessage(EditZutat.Name));
-            showWindow.Closed += ShowWindow_Closed;
-
-
-            showWindow.ShowDialog();
+            editZutatWindow.Closed += ShowWindow_Closed;
+            editZutatWindow.ShowDialog();
         }
 
-
-
-
-
+        // Methode zum Aktualisieren der Zutat
         private void UpdateList()
         {
             zutats = JsonUtils.GetOneFullData<Zutat>(FullPath, oldName);
-            if (zutats == null)
+            if (zutats == null || zutats.Count == 0)
             {
                 MessageBox.Show("Fehler: Zutat konnte nicht geladen werden.");
                 return;
             }
+
             EditZutat = zutats[0];
             AllergenList = string.Join(", ", EditZutat.Allergene);
             KategorieList = string.Join(", ", EditZutat.KategorieNamen);
-            Energie = EditZutat.EnergieKcal.ToString() + " kcal";
+            Energie = $"{EditZutat.EnergieKcal} kcal";
         }
 
-        public Zutat EditZutat
+        // Event-Handler für das Schließen des Bearbeitungsfensters
+        private void ShowWindow_Closed(object sender, System.EventArgs e)
         {
-            get { return _editZutat; }
-            set { Set(ref _editZutat, value); }
+            try
+            {
+                UpdateList();
+            }
+            catch
+            {
+                var currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                currentWindow?.Close();
+            }
         }
 
+        // Aufräumen der Ressourcen
         public override void Cleanup()
         {
             Messenger.Default.Unregister(this);
             base.Cleanup();
         }
-        
-
     }
 }

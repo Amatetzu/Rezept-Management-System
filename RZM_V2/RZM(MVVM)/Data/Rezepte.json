@@ -1,0 +1,174 @@
+[
+  {
+    "Name": "Caesar Salad",
+    "Zutaten": [
+      {
+        "Name": "Römersalat",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Hähnchenbrust",
+        "Menge": 300.0
+      },
+      {
+        "Name": "Croutons",
+        "Menge": 100.0
+      },
+      {
+        "Name": "Parmesan",
+        "Menge": 50.0
+      },
+      {
+        "Name": "Olivenöl",
+        "Menge": 2.0
+      },
+      {
+        "Name": "Zitrone",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Knoblauchzehe",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Senf",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Worcestersauce",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Ei",
+        "Menge": 1.0
+      }
+    ],
+    "Zubereitung": "Hähnchenbrust grillen und in Streifen schneiden. Römersalat waschen und in mundgerechte Stücke zupfen. Für das Dressing Olivenöl, Zitronensaft, gepresster Knoblauch, Senf, Worcestersauce und ein rohes Ei gut vermischen. Salat mit Dressing, Croutons, Parmesan und Hähnchenbruststreifen servieren.",
+    "Kategorien": [
+      "Vorspeise",
+      "Salat"
+    ],
+    "Allergene": [
+      "Gluten",
+      "Ei"
+    ],
+    "Zeit": 20
+  },
+  {
+    "Name": "Lasagne",
+    "Zutaten": [
+      {
+        "Name": "Lasagneplatten",
+        "Menge": 250.0
+      },
+      {
+        "Name": "Hackfleisch",
+        "Menge": 500.0
+      },
+      {
+        "Name": "Zwiebel",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Knoblauchzehe",
+        "Menge": 2.0
+      },
+      {
+        "Name": "Tomaten",
+        "Menge": 800.0
+      },
+      {
+        "Name": "Mozzarella",
+        "Menge": 250.0
+      },
+      {
+        "Name": "Parmesan",
+        "Menge": 100.0
+      },
+      {
+        "Name": "Olivenöl",
+        "Menge": 2.0
+      },
+      {
+        "Name": "Salz",
+        "Menge": 0.0
+      },
+      {
+        "Name": "Pfeffer",
+        "Menge": 0.0
+      },
+      {
+        "Name": "Oregano",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Basilikum",
+        "Menge": 1.0
+      }
+    ],
+    "Zubereitung": "Hackfleisch mit Zwiebel und Knoblauch anbraten. Tomaten hinzufügen und mit Salz, Pfeffer, Oregano und Basilikum würzen. Lasagneplatten abwechselnd mit der Hackfleischsoße, Mozzarella und Parmesan in eine Auflaufform schichten. Im Ofen bei 180°C ca. 30 Minuten backen.",
+    "Kategorien": [
+      "Hauptgericht",
+      "Nudelgericht"
+    ],
+    "Allergene": [
+      "Gluten",
+      "Laktose"
+    ],
+    "Zeit": 60
+  },
+  {
+    "Name": "Spaghetti Bolognese",
+    "Zutaten": [
+      {
+        "Name": "Spaghetti",
+        "Menge": 400.0
+      },
+      {
+        "Name": "Rinderhackfleisch",
+        "Menge": 300.0
+      },
+      {
+        "Name": "Zwiebel",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Knoblauchzehe",
+        "Menge": 2.0
+      },
+      {
+        "Name": "Tomaten",
+        "Menge": 800.0
+      },
+      {
+        "Name": "Olivenöl",
+        "Menge": 2.0
+      },
+      {
+        "Name": "Salz",
+        "Menge": 0.0
+      },
+      {
+        "Name": "Pfeffer",
+        "Menge": 0.0
+      },
+      {
+        "Name": "Oregano",
+        "Menge": 1.0
+      },
+      {
+        "Name": "Basilikum",
+        "Menge": 1.0
+      }
+    ],
+    "Zubereitung": "Spaghetti nach Packungsanweisung kochen. Zwiebel und Knoblauch fein hacken und in Olivenöl anbraten. Hackfleisch hinzufügen und krümelig braten. Tomaten und Gewürze hinzufügen und 20 Minuten köcheln lassen. Mit den Spaghetti vermischen und servieren.",
+    "Kategorien": [
+      "Hauptgericht",
+      "  Fleischgericht"
+    ],
+    "Allergene": [
+      "Gluten"
+    ],
+    "Zeit": 30
+  }
+]

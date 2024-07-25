@@ -23,7 +23,7 @@ namespace RZM_MVVM_.View
         public ShowRezeptWindow()
         {
             InitializeComponent();
-            ShowRezeptWindwoViewModell vm = new ShowRezeptWindwoViewModell();
+            ShowRezeptWindowViewModel vm = new ShowRezeptWindowViewModel();
             DataContext = vm;
         }
     }

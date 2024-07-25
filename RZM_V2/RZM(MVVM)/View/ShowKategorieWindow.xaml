@@ -11,14 +11,14 @@
         <StackPanel>
             <Grid>
 
-                <TextBlock Text="{Binding ShowKategori.Name}"
+                <TextBlock Text="{Binding ShowKategorie.Name}"
                    FontSize="25"
                    Margin="10"
                    HorizontalAlignment="Center"
                    FontWeight="Bold"/>
 
                 <Button Content="Bearbeiten"
-                  Command="{Binding Editkategori}"  HorizontalAlignment="right" Width=" 100" Height="30" Margin="10" /> 
+                  Command="{Binding EditKategorieCommand}"  HorizontalAlignment="right" Width=" 100" Height="30" Margin="10" /> 
             </Grid>
 
             <Label Content="Beschreibung"
@@ -26,7 +26,7 @@
                    FontSize="20"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"/>
-            <TextBlock Text="{Binding ShowKategori.Beschreibung}"
+            <TextBlock Text="{Binding ShowKategorie.Beschreibung}"
                    FontSize="15"
                    Margin="5"
                    HorizontalAlignment="Center"

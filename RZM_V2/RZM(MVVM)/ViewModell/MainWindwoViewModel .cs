@@ -8,10 +8,12 @@ using RZM_MVVM_.MVVM;
 using RZM_MVVM_.View;
 using GalaSoft.MvvmLight;
 using System.Diagnostics;
+
 namespace RZM_MVVM_.ViewModell
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        // Pfad zur JSON-Datei für Rezepte, Zutaten und Kategorien
         public string FullPath = System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath);
 
         private string _searchText;
@@ -22,8 +24,7 @@ namespace RZM_MVVM_.ViewModell
             {
                 if (Set(ref _searchText, value))
                 {
-                    
-                    UpdateList();
+                    UpdateList(); // Liste aktualisieren, wenn der Suchtext geändert wird
                 }
             }
         }
@@ -31,7 +32,6 @@ namespace RZM_MVVM_.ViewModell
         private string _selectetItemGenericList;
         public string SelectetItemGenericList
         {
-
             get { return _selectetItemGenericList; }
             set { Set(ref _selectetItemGenericList, value); }
         }
@@ -40,8 +40,7 @@ namespace RZM_MVVM_.ViewModell
         public string HeaderCategory
         {
             get { return _headerCategory; }
-            set
-            { _headerCategory = value; }
+            set { _headerCategory = value; }
         }
 
         private string _headerMain;
@@ -57,6 +56,8 @@ namespace RZM_MVVM_.ViewModell
         public ICommand SchowRezepts => new RelayCommand(RezeptShow);
         public ICommand SchowIngredients => new RelayCommand(IngredientShow);
         public ICommand AddCommand => new RelayCommand(AddNewData);
+        public ICommand EditCommand => new RelayCommand(OpenEditWindow);
+        public ICommand DeleteCommand => new RelayCommand(DeletEntry);
 
         public ObservableCollection<string> GenericList { get; set; }
 
@@ -69,89 +70,82 @@ namespace RZM_MVVM_.ViewModell
             Application.Current.MainWindow.Closed += (s, e) => Application.Current.Shutdown();
         }
 
+        // Öffnet das entsprechende Fenster zum Hinzufügen neuer Daten
         private void AddNewData()
         {
-           
             switch (HeaderMain)
             {
                 case "Rezepte":
-                   AddRezeptWindow showWindow = new AddRezeptWindow();
-                    showWindow.Closed += ShowWindow_Closed;
-                    showWindow.ShowDialog();
+                    var addRezeptWindow = new AddRezeptWindow();
+                    addRezeptWindow.Closed += ShowWindow_Closed;
+                    addRezeptWindow.ShowDialog();
                     break;
                 case "Zutaten":
-                    AddZutatWindow showWindow1 = new AddZutatWindow();
-                    showWindow1.Closed += ShowWindow_Closed;
-                    showWindow1.ShowDialog();
+                    var addZutatWindow = new AddZutatWindow();
+                    addZutatWindow.Closed += ShowWindow_Closed;
+                    addZutatWindow.ShowDialog();
                     break;
-                
                 case "Kategorien":
-                    AddKategorieWindow showWindow2 = new AddKategorieWindow();
-                    showWindow2.Closed += ShowWindow_Closed;
-                    showWindow2.ShowDialog();
+                    var addKategorieWindow = new AddKategorieWindow();
+                    addKategorieWindow.Closed += ShowWindow_Closed;
+                    addKategorieWindow.ShowDialog();
                     break;
-                
                 default:
-                    MessageBox.Show("kein TEst");
+                    MessageBox.Show("Kein Test");
                     break;
-
-              
             }
-           
         }
-
-        
 
         // Event-Handler für Doppelklick auf ein ListView-Item
         private void ListDoubleClickHandler(object sender, EventArgs e)
         {
-            var showWindow = new Window();
+            Window showWindow;
+
             if (SelectetItemGenericList == null)
             {
-                MessageBox.Show("Nichtsausgewählt");
+                MessageBox.Show("Nicht ausgewählt");
                 return;
             }
-            else
+
+            switch (FullPath)
             {
-                if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
-                {
+                case var path when path == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath):
                     showWindow = new ShowRezeptWindow();
                     Messenger.Default.Send(new UpdateHeaderMessage(SelectetItemGenericList));
-
-                }
-                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
-                {
+                    break;
+                case var path when path == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath):
                     showWindow = new ShowZutatWindow();
                     Messenger.Default.Send(new UpdateZutatMessage(SelectetItemGenericList));
-                }
-                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
-                {
+                    break;
+                case var path when path == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath):
                     showWindow = new ShowKategorieWindow();
                     Messenger.Default.Send(new UpdateKategorieMessage(SelectetItemGenericList));
-
-                }
-                showWindow.Closed += ShowWindow_Closed; // Event-Handler hinzufügen
-
-                showWindow.ShowDialog();
+                    break;
+                default:
+                    MessageBox.Show("Unbekannter Pfad");
+                    return;
             }
+
+            showWindow.Closed += ShowWindow_Closed;
+            showWindow.ShowDialog();
         }
 
+        // Wird ausgeführt, wenn ein modales Fenster geschlossen wird
         private void ShowWindow_Closed(object sender, EventArgs e)
         {
-           
-            // de, der ausgeführt wird, wenn das modale Fenster geschlossen wird
             UpdateList();
-          
         }
 
+        // Aktualisiert die Liste basierend auf dem Suchtext
         public void UpdateList()
         {
             if (SearchText == null)
             {
                 SearchText = "";
             }
-            List<string> resultList = JsonUtils.ExtractStringListFromJson(FullPath, "Name");
-            List<string> filteredList = JsonUtils.FilterList(resultList, SearchText);
+
+            var resultList = JsonUtils.ExtractStringListFromJson(FullPath, "Name");
+            var filteredList = JsonUtils.FilterList(resultList, SearchText);
             GenericList.Clear();
             foreach (var item in filteredList)
             {
@@ -159,6 +153,7 @@ namespace RZM_MVVM_.ViewModell
             }
         }
 
+        // Setzt den Pfad auf Rezepte und aktualisiert die Liste
         public void RezeptShow()
         {
             FullPath = System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath);
@@ -166,14 +161,15 @@ namespace RZM_MVVM_.ViewModell
             HeaderMain = "Rezepte";
         }
 
+        // Setzt den Pfad auf Zutaten und aktualisiert die Liste
         public void IngredientShow()
         {
             HeaderMain = "Zutaten";
             FullPath = System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath);
             UpdateList();
-
         }
 
+        // Setzt den Pfad auf Kategorien und aktualisiert die Liste
         public void CategoryShow()
         {
             FullPath = System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath);
@@ -181,10 +177,7 @@ namespace RZM_MVVM_.ViewModell
             HeaderMain = "Kategorien";
         }
 
-
-        //COmands Edit ADD Delet
-        public ICommand EditCommand => new RelayCommand(OpenEditWindow);
-        public ICommand DeleteCommand => new RelayCommand(DeletEntry);
+        // Löscht den ausgewählten Eintrag basierend auf der aktuellen Kategorie
         private void DeletEntry()
         {
             switch (HeaderMain)
@@ -198,66 +191,71 @@ namespace RZM_MVVM_.ViewModell
                 case "Rezepte":
                     JsonUtils.DeleteJson<Rezept>(FullPath, SelectetItemGenericList);
                     break;
-
-                default :
-                    MessageBox.Show("nichtsausgewählt");
+                default:
+                    MessageBox.Show("Nicht ausgewählt");
                     break;
-
             }
-            
+
             UpdateList();
         }
-        public void OpenEditWindow()
+
+        // Öffnet das entsprechende Fenster zum Bearbeiten eines Eintrags
+        private void OpenEditWindow()
         {
-            if (SelectetItemGenericList != null)
+            if (SelectetItemGenericList == null)
             {
-                if (FullPath == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath))
-                {
+                MessageBox.Show("Nicht ausgewählt");
+                return;
+            }
 
+            switch (FullPath)
+            {
+                case var path when path == System.IO.Path.GetFullPath(ConstValues.RezeptJsonPath):
                     OpenEditRezeptWindow(SelectetItemGenericList);
-                }
-                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath))
-                {
+                    break;
+                case var path when path == System.IO.Path.GetFullPath(ConstValues.ZutatenJsonPath):
                     OpenEditZutatWindow(SelectetItemGenericList);
-                }
-                else if (FullPath == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath))
-                {
+                    break;
+                case var path when path == System.IO.Path.GetFullPath(ConstValues.KategorienJsonPath):
                     OpenEditKategorieWindow(SelectetItemGenericList);
-                }
-
+                    break;
+                default:
+                    MessageBox.Show("Unbekannter Pfad");
+                    break;
             }
-            else
-            {
-                MessageBox.Show("Nichtsausgewählt");
-            }
-
         }
 
         private void OpenEditRezeptWindow(string selectItem)
         {
-            View.EditRezeptWindow showWindow = new View.EditRezeptWindow();
-            showWindow.Owner = Application.Current.MainWindow; // Setzt das Hauptfenster als Eigentümer
+            var showWindow = new View.EditRezeptWindow
+            {
+                Owner = Application.Current.MainWindow
+            };
             showWindow.Closed += ShowWindow_Closed;
             Messenger.Default.Send(new UpdateHeaderMessage(selectItem));
             showWindow.ShowDialog();
         }
+
         private void OpenEditZutatWindow(string selectItem)
         {
-            View.EditZutatWindow showWindow = new View.EditZutatWindow();
-            showWindow.Owner = Application.Current.MainWindow; // Setzt das Hauptfenster als Eigentümer
+            var showWindow = new View.EditZutatWindow
+            {
+                Owner = Application.Current.MainWindow
+            };
             showWindow.Closed += ShowWindow_Closed;
-            Messenger.Default.Send(new UpdateHeaderMessage(selectItem));
+            Messenger.Default.Send(new UpdateZutatMessage(selectItem));
             showWindow.ShowDialog();
         }
+
         private void OpenEditKategorieWindow(string selectItem)
         {
-            EditKategorieWidow showWindow = new View.EditKategorieWidow();
-            showWindow.Owner = Application.Current.MainWindow; // Setzt das Hauptfenster als Eigentümer
+            var showWindow = new View.EditKategorieWidow
+            {
+                Owner = Application.Current.MainWindow
+            };
             showWindow.Closed += ShowWindow_Closed;
             Messenger.Default.Send(new UpdateKategorieMessage(selectItem));
             showWindow.ShowDialog();
         }
-
-
     }
 }

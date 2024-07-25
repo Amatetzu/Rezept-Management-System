@@ -1,0 +1,118 @@
+[
+  {
+    "Name": "Abendessen",
+    "Beschreibung": "Abendessen sind Hauptmahlzeiten, die üblicherweise am späten Nachmittag oder Abend eingenommen werden und aus verschiedenen warmen Gerichten wie Fleisch, Gemüse, Beilagen und Desserts bestehen können."
+  },
+  {
+    "Name": "Beilagen",
+    "Beschreibung": "Beilagen sind ergänzende Gerichte, die zusammen mit Hauptgerichten serviert werden, wie z.B. Salate, Gemüse, Brot oder Saucen."
+  },
+  {
+    "Name": "Brühe",
+    "Beschreibung": "Diese Kategorie umfasst verschiedene Arten von Brühe, die als Basis für Suppen, Eintöpfe und Saucen verwendet werden."
+  },
+  {
+    "Name": "Desserts",
+    "Beschreibung": "Desserts sind süße Speisen, die üblicherweise am Ende einer Mahlzeit serviert werden und umfassen Kuchen, Torten, Eiscreme, Obstsalate oder Puddings."
+  },
+  {
+    "Name": "dorit",
+    "Beschreibung": "kükenmama"
+  },
+  {
+    "Name": "Fett",
+    "Beschreibung": "Diese Kategorie umfasst verschiedene Arten von Fetten und Ölen, die in der Küche verwendet werden, wie Butter, Olivenöl, Kokosöl und mehr."
+  },
+  {
+    "Name": "Fischgericht",
+    "Beschreibung": "Fischgerichte sind Gerichte, bei denen Fisch die Hauptzutat ist. Dies kann gebratener Fisch, gegrillter Fisch, Fischfilets, Fischcurry oder andere zubereitete Fischgerichte umfassen."
+  },
+  {
+    "Name": "Fleischgericht",
+    "Beschreibung": "Fleischgerichte umfassen Hauptgerichte, bei denen Fleisch die zentrale Zutat ist. Dies kann Geflügel, Rindfleisch, Schweinefleisch, Lamm oder andere Arten von Fleisch umfassen, das gebraten, gebacken, gegrillt oder gekocht wird."
+  },
+  {
+    "Name": "Frucht",
+    "Beschreibung": "Diese Kategorie umfasst alle Arten von Früchten, die in verschiedenen Gerichten und Desserts verwendet werden können."
+  },
+  {
+    "Name": "Frühstück",
+    "Beschreibung": "Frühstücksgerichte sind für den morgendlichen Verzehr gedacht und umfassen typischerweise Speisen wie Eier, Müsli, Toast, Obst und Getränke wie Kaffee oder Tee."
+  },
+  {
+    "Name": "Geflügelgericht",
+    "Beschreibung": "Geflügelgerichte sind Gerichte, bei denen Geflügel wie Huhn, Pute, Ente oder Gans die Hauptzutat ist. Diese Gerichte können gebraten, gebacken, gegrillt oder geschmort werden."
+  },
+  {
+    "Name": "Gemüse",
+    "Beschreibung": "Diese Kategorie umfasst alle Arten von Gemüse, die in verschiedenen Gerichten verwendet werden. Dazu gehören Wurzelgemüse, Blattgemüse, Fruchtgemüse und vieles mehr."
+  },
+  {
+    "Name": "Getreideprodukt",
+    "Beschreibung": "Diese Kategorie umfasst verschiedene Produkte, die aus Getreide hergestellt werden, wie Brot, Nudeln, Reis und mehr."
+  },
+  {
+    "Name": "Hauptgerichte",
+    "Beschreibung": "Hauptgerichte sind die zentralen Bestandteile einer Mahlzeit und umfassen typischerweise Fleisch-, Fisch- oder vegetarische Gerichte in Kombination mit Beilagen wie Reis, Kartoffeln, Gemüse oder Nudeln."
+  },
+  {
+    "Name": "Hülsenfrüchte",
+    "Beschreibung": "Diese Kategorie umfasst alle Arten von Hülsenfrüchten, wie Bohnen, Linsen, Kichererbsen und mehr."
+  },
+  {
+    "Name": "Käse",
+    "Beschreibung": "Diese Kategorie umfasst verschiedene Arten von Käse, die in verschiedenen Gerichten verwendet werden können."
+  },
+  {
+    "Name": "Lammgericht",
+    "Beschreibung": "Lammgerichte sind Gerichte, bei denen Lammfleisch die Hauptzutat ist. Dies kann Lammkeule, Lammkoteletts, Lammcurry oder andere Lammfleischgerichte umfassen."
+  },
+  {
+    "Name": "Meeresfrüchtegericht",
+    "Beschreibung": "Meeresfrüchtegerichte sind Gerichte, bei denen Meeresfrüchte wie Garnelen, Muscheln, Tintenfisch, Krabben oder andere Meeresfrüchte die Hauptzutat sind. Diese Gerichte können gebraten, gegrillt, gedämpft oder in Saucen zubereitet werden."
+  },
+  {
+    "Name": "Milchersatz",
+    "Beschreibung": "Diese Kategorie umfasst pflanzliche Alternativen zu Milchprodukten, wie Sojamilch, Mandelmilch, Kokosmilch und mehr."
+  },
+  {
+    "Name": "Milchprodukt",
+    "Beschreibung": "Diese Kategorie umfasst alle Arten von Milchprodukten, wie Milch, Käse, Joghurt und mehr."
+  },
+  {
+    "Name": "Nüsse",
+    "Beschreibung": "Diese Kategorie umfasst alle Arten von Nüssen, die in verschiedenen Gerichten und als Snacks verwendet werden können."
+  },
+  {
+    "Name": "Rindfleischgericht",
+    "Beschreibung": "Rindfleischgerichte sind Gerichte, bei denen Rindfleisch die Hauptzutat ist. Dies kann Braten, Steaks, Rindfleischeintöpfe, Rinderrouladen oder andere Rindfleischgerichte umfassen."
+  },
+  {
+    "Name": "Sauce",
+    "Beschreibung": "Diese Kategorie umfasst verschiedene Arten von Saucen, die zur Verfeinerung und Abrundung von Gerichten verwendet werden."
+  },
+  {
+    "Name": "Schweinefleischgericht",
+    "Beschreibung": "Schweinefleischgerichte sind Gerichte, bei denen Schweinefleisch die Hauptzutat ist. Dies kann Schweinebraten, Schweinefilet, Schweinekoteletts, Schweinegeschnetzeltes oder andere Schweinefleischgerichte umfassen."
+  },
+  {
+    "Name": "Teig",
+    "Beschreibung": "Diese Kategorie umfasst verschiedene Arten von Teigen, die für Backwaren, Pizza, Pasteten und andere Gerichte verwendet werden."
+  },
+  {
+    "Name": "Tierprodukt",
+    "Beschreibung": "Diese Kategorie umfasst alle Produkte, die von Tieren stammen, wie Eier, Honig und mehr."
+  },
+  {
+    "Name": "Vegan",
+    "Beschreibung": "die Kategorie vegan bezieht sich auf Produkte und Rezepte, die keinerlei tierische Inhaltsstoffe enthalten. Es werden keine Bestandteile wie Fleisch, Fisch, Milch, Eier oder andere tierische Derivate verwendet. Stattdessen werden pflanzliche Alternativen bevorzugt, um ethische und gesundheitliche Bedenken bezüglich tierischer Produkte zu berücksichtigen."
+  },
+  {
+    "Name": "Vegetarisch",
+    "Beschreibung": "Vegetarisch bedeutet, dass Produkte und Rezepte keine Bestandteile enthalten, die durch Schlachten getöteter Tiere stammen. Das schließt Fleisch und Fisch aus der Ernährung aus, erlaubt jedoch Milchprodukte, Eier und andere tierische Produkte. Vegetarische Ernährung kann aus ethischen Gründen (Schutz von Tieren) oder gesundheitlichen Überlegungen gewählt werden, während auf pflanzliche Alternativen gesetzt wird."
+  },
+  {
+    "Name": "Vorspeisen",
+    "Beschreibung": "Vorspeisen sind kleine Gerichte oder Appetithäppchen, die vor dem Hauptgang serviert werden und oft Salate, Suppen, Antipasti oder kleine Portionen von Hauptgerichten umfassen."
+  }
+]
