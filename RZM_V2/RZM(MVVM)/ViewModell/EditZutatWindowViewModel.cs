@@ -13,21 +13,27 @@ namespace RZM_MVVM_.ViewModell
 {
     internal class EditZutatWindowViewModel : ViewModelBase
     {
-        private string oldName { get; set; }
+        private string oldName;
         private Zutat _editZutat;
+
+        // Pfad zur JSON-Datei für Zutaten
         public string FullPath = Path.GetFullPath(ConstValues.ZutatenJsonPath);
         public List<Zutat> zutats { get; set; }
 
         private string _allergenList;
         private string _kategorieList;
 
+        // Eigenschaften für Allergene und Kategorien, die an die UI gebunden sind
         public string AllergenList
         {
             get { return _allergenList; }
             set
             {
                 Set(ref _allergenList, value);
-                EditZutat.Allergene = value.Split(',').Select(s => s.Trim()).ToList();
+                if (EditZutat != null)
+                {
+                    EditZutat.Allergene = value.Split(',').Select(s => s.Trim()).ToList();
+                }
             }
         }
 
@@ -37,19 +43,25 @@ namespace RZM_MVVM_.ViewModell
             set
             {
                 Set(ref _kategorieList, value);
-                EditZutat.KategorieNamen = value.Split(',').Select(s => s.Trim()).ToList();
+                if (EditZutat != null)
+                {
+                    EditZutat.KategorieNamen = value.Split(',').Select(s => s.Trim()).ToList();
+                }
             }
         }
 
+        // Commands für das Speichern und Löschen der Zutat
         public ICommand UpdateZutatCommand => new RelayCommand(StoraData);
         public ICommand DeleteZutatCommand => new RelayCommand(DeleteZutat);
 
+        // Konstruktor
         public EditZutatWindowViewModel()
         {
             Messenger.Default.Register<UpdateZutatMessage>(this, HandleUpdateZutatMessage);
             EditZutat = new Zutat();
         }
 
+        // Behandelt Nachrichten zur Aktualisierung der Zutat
         private void HandleUpdateZutatMessage(UpdateZutatMessage message)
         {
             if (message == null || string.IsNullOrEmpty(message.NewZutat))
@@ -69,11 +81,13 @@ namespace RZM_MVVM_.ViewModell
             UpdateList();
         }
 
+        // Speichert die Zutat in der JSON-Datei
         private void StoraData()
         {
             UpdateZutat(FullPath, oldName);
         }
 
+        // Löscht die Zutat aus der JSON-Datei
         private void DeleteZutat()
         {
             MessageBoxResult result = MessageBox.Show("Wollen Sie die Zutat wirklich löschen?", "Löschen", MessageBoxButton.YesNo);
@@ -81,57 +95,53 @@ namespace RZM_MVVM_.ViewModell
             {
                 JsonUtils.DeleteJson<Zutat>(FullPath, oldName);
 
-                // Überprüfen, ob das aktuelle Fenster und das Besitzerfenster nicht null sind
+                // Schließe das aktuelle Fenster
                 Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-                if (currentWindow != null)
-                {
-                    currentWindow.Close();
-                }
+                currentWindow?.Close();
             }
         }
-       
 
-
-
-
+        // Aktualisiert die Zutat-Liste mit den Daten aus der JSON-Datei
         private void UpdateList()
         {
             zutats = JsonUtils.GetOneFullData<Zutat>(FullPath, oldName);
-            if (zutats == null)
+            if (zutats == null || !zutats.Any())
             {
                 MessageBox.Show("Fehler: Zutat konnte nicht geladen werden.");
                 return;
             }
+
             EditZutat = zutats[0];
             AllergenList = string.Join(", ", EditZutat.Allergene);
             KategorieList = string.Join(", ", EditZutat.KategorieNamen);
         }
 
+        // Eigenschaft für die zu bearbeitende Zutat
         public Zutat EditZutat
         {
             get { return _editZutat; }
             set { Set(ref _editZutat, value); }
         }
 
+        // Aufräumen beim Schließen des ViewModels
         public override void Cleanup()
         {
             Messenger.Default.Unregister(this);
             base.Cleanup();
         }
 
+        // Aktualisiert die Zutat in der JSON-Datei
         private void UpdateZutat(string path, string name)
         {
-            EditZutat.KategorieNamen = KategorieList.Split(',').ToList();
-            EditZutat.Allergene = AllergenList.Split(',').ToList();
-            
+            EditZutat.KategorieNamen = KategorieList.Split(',').Select(s => s.Trim()).ToList();
+            EditZutat.Allergene = AllergenList.Split(',').Select(s => s.Trim()).ToList();
+
             JsonUtils.UpdateJson<Zutat>(FullPath, name, EditZutat);
             JsonUtils.SortJsonFileZutat(FullPath);
-            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            if (currentWindow != null)
-            {
-                currentWindow.Close();
-            }
-        }
 
+            // Schließe das aktuelle Fenster
+            Window currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            currentWindow?.Close();
+        }
     }
 }

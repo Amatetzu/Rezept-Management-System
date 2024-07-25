@@ -1,0 +1,100 @@
+[
+  {
+    "Name": "Ei",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [
+      "Ei"
+    ],
+    "EnergieKcal": 143.0,
+    "KategorieNamen": [
+      "Eier & Eiprodukte"
+    ]
+  },
+  {
+    "Name": "Hähnchenbrust (gegrillt)",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [],
+    "EnergieKcal": 165.0,
+    "KategorieNamen": [
+      "Fleisch & Geflügel"
+    ]
+  },
+  {
+    "Name": "Joghurt (fettarm)",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [
+      "Milch"
+    ],
+    "EnergieKcal": 48.0,
+    "KategorieNamen": [
+      "Milchprodukte"
+    ]
+  },
+  {
+    "Name": "Olivenöl",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [],
+    "EnergieKcal": 884.0,
+    "KategorieNamen": [
+      "Öle & Fette"
+    ]
+  },
+  {
+    "Name": "Reis (gekocht)",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [],
+    "EnergieKcal": 130.0,
+    "KategorieNamen": [
+      "Getreideprodukte"
+    ]
+  },
+  {
+    "Name": "Schokolade (Vollmilch)",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [
+      "Milch"
+    ],
+    "EnergieKcal": 535.0,
+    "KategorieNamen": [
+      "Süßigkeiten"
+    ]
+  },
+  {
+    "Name": "Spinat (gekocht)",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [],
+    "EnergieKcal": 23.0,
+    "KategorieNamen": [
+      "Gemüse"
+    ]
+  },
+  {
+    "Name": "Thunfisch (in Wasser, abgetropft)",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [
+      "Fisch"
+    ],
+    "EnergieKcal": 103.0,
+    "KategorieNamen": [
+      "Fleisch & Fisch"
+    ]
+  },
+  {
+    "Name": "Tomate",
+    "Einheit": "g",
+    "Menge": 100.0,
+    "Allergene": [],
+    "EnergieKcal": 18.0,
+    "KategorieNamen": [
+      "Gemüse"
+    ]
+  }
+]
