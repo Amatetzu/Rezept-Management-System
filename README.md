@@ -1,6 +1,9 @@
 # Rezept-Management-System (RZM)
 
-RZM ist ein kleines Softwareprojekt, welches im Zweitsemester-Modul "Softwareentwicklung" an der TU Bergakademie Freiberg von Yasmin Hempelt und Mika Berthold entwickelt wird/wurde.
+RZM ist ein kleines Softwareprojekt, welches im Modul "Softwareentwicklung" an der TU Bergakademie Freiberg von Yasmin Hempelt und Mika Berthold entwickelt wird.
+In den drei Wochen bearbeitungszeit haben wir vesucht möglichst viele Features zu implementieren. Da wir während der Erstellung festgestellt haben, dass die umsetzung mit MVVM besser umzusetzen ist, ist die richtige und von uns soweit wie möglich vollständige Version das RZM
+
+
 
 ## Must-Have Features:
 
