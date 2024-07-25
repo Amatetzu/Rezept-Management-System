@@ -193,6 +193,17 @@ namespace RZM_MVVM_.ViewModell
                 ZutatenName = string.Empty;
                 ZutatenMenge = string.Empty;
             }
+            else
+            {
+                if (string.IsNullOrEmpty(ZutatenName))
+                {
+                    MessageBox.Show("Bitte geben Sie einen Namen für die Zutat ein.");
+                }
+                else
+                {
+                    MessageBox.Show("Bitte geben Sie eine Menge für die Zutat ein.");
+                }
+            }
         }
 
         // Methode zum Löschen einer Zutat aus der Liste

@@ -50,7 +50,7 @@
                                           Margin="5"
                                           HorizontalAlignment="Center"
                                           Text="{Binding ZutatenName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                          />
+                                          TextWrapping="Wrap"/>
                                 <Popup x:Name="searchedZutaten"
                                         PlacementTarget="{Binding ElementName=ingInput}"
                                         IsOpen="{Binding IsSearchPopupOpen}">
