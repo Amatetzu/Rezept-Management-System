@@ -5,9 +5,10 @@ RZM ist ein kleines Softwareprojekt, das im Modul "Softwareentwicklung" an der T
 ## Features:
 
 - Erstellung, Kategorisierung und Verwaltung von Rezepten
-- Durchsuchung der Rezepte nach verschiedenen Kriterien
+- Durchsuchung der Einträge nach Namen
 - Möglichkeit, Kategorien, Rezepte und Zutaten zu erweitern und zu bearbeiten
 - Versuch, alles möglichst nutzerfreundlich zu gestalten
+
 
 ## Features, die in Zukunft noch implementiert werden sollen:
 
